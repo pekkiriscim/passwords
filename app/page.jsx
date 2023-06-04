@@ -1,0 +1,6 @@
+import Authentication from "@/components/Authentication";
+import Dashboard from "@/components/Dashboard";
+
+export default function Home() {
+  return <Dashboard />;
+}
