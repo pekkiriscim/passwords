@@ -1,5 +1,5 @@
-import Authentication from "@/components/Authentication";
-import Dashboard from "@/components/Dashboard";
+import Authentication from "@/components/Page/Authentication";
+import Dashboard from "@/components/Page/Dashboard";
 
 export default function Home() {
   return <Dashboard />;
