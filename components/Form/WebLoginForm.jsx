@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import PasswordStrength from "@/components/PasswordStrength";
 import PasswordGenerator from "@/components/PasswordGenerator";
+import { NewPasswordContext } from "@/components/Dialog/AddNewPasswordDialog";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,7 +12,8 @@ import { Eye, EyeOff } from "lucide-react";
 
 function WebLoginForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [password, setPassword] = useState("");
+
+  const { newPassword, setNewPassword } = useContext(NewPasswordContext);
 
   return (
     <div className="grid gap-y-4 py-4">
@@ -23,6 +25,12 @@ function WebLoginForm() {
           placeholder="E-posta giriniz"
           autoComplete="off"
           required
+          value={newPassword.email}
+          onChange={(e) => {
+            e.preventDefault();
+
+            setNewPassword({ ...newPassword, email: e.target.value });
+          }}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
@@ -34,9 +42,11 @@ function WebLoginForm() {
             placeholder="Şifre giriniz"
             autoComplete="off"
             required
+            value={newPassword.password}
             onChange={(e) => {
               e.preventDefault();
-              setPassword(e.target.value);
+
+              setNewPassword({ ...newPassword, password: e.target.value });
             }}
           />
           <Button
@@ -45,6 +55,7 @@ function WebLoginForm() {
             className="ml-2"
             onClick={(e) => {
               e.preventDefault();
+
               setIsPasswordVisible(!isPasswordVisible);
             }}
           >
@@ -56,7 +67,7 @@ function WebLoginForm() {
           </Button>
         </div>
         <PasswordGenerator />
-        <PasswordStrength password={password} />
+        <PasswordStrength password={newPassword.password} />
       </div>
       <div className="grid w-full gap-y-1.5">
         <Label htmlFor="webLoginURL">URL</Label>
@@ -66,6 +77,12 @@ function WebLoginForm() {
           placeholder="URL giriniz"
           autoComplete="off"
           required
+          value={newPassword.URL}
+          onChange={(e) => {
+            e.preventDefault();
+
+            setNewPassword({ ...newPassword, URL: e.target.value });
+          }}
         />
       </div>
     </div>
