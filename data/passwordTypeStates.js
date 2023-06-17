@@ -14,4 +14,12 @@ export const passwordTypeStates = {
     expirationDate: "",
     securityCode: "",
   },
+  identificationDocument: {
+    passwordType: "identificationDocument",
+    passwordTitle: "",
+    identityNumber: "",
+    fullName: "",
+    birthDate: "",
+    seriesNumber: "",
+  },
 };
