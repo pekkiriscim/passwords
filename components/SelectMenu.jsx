@@ -9,20 +9,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function SelectMenu({ value, onValueChange, passwordTypes }) {
+function SelectMenu({ value, onValueChange, data, label, id, placeholder }) {
   return (
     <div className="grid gap-y-1.5 pt-4">
-      <Label htmlFor="passwordType">Şifre Türü</Label>
+      <Label htmlFor={id}>{label}</Label>
       <Select value={value} onValueChange={onValueChange}>
-        <SelectTrigger id="passwordType" className="w-full">
-          <SelectValue placeholder="Şifre türü seçiniz" />
+        <SelectTrigger id={id} className="w-full">
+          <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="max-h-80">
           <SelectGroup>
-            {passwordTypes.map((element, index) => {
+            {data.map((element, index) => {
               return (
                 <SelectItem key={index} value={element.value}>
-                  {element.name}
+                  {element.text}
                 </SelectItem>
               );
             })}

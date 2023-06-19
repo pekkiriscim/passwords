@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 import { Eye, EyeOff } from "lucide-react";
 
-function WebLoginForm() {
+function SocialMediaAccountForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
@@ -18,18 +18,18 @@ function WebLoginForm() {
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="email">E-posta</Label>
+        <Label htmlFor="username">Kullanıcı Adı</Label>
         <Input
-          type="email"
-          id="email"
-          placeholder="E-posta giriniz"
+          type="text"
+          id="username"
+          placeholder="Kullanıcı adı giriniz"
           autoComplete="off"
           required
-          value={newPassword.email}
+          value={newPassword.username}
           onChange={(e) => {
             e.preventDefault();
 
-            setNewPassword({ ...newPassword, email: e.target.value });
+            setNewPassword({ ...newPassword, username: e.target.value });
           }}
         />
       </div>
@@ -69,24 +69,8 @@ function WebLoginForm() {
         <PasswordGenerator />
         <PasswordStrength password={newPassword.password} />
       </div>
-      <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="URL">URL</Label>
-        <Input
-          type="url"
-          id="URL"
-          placeholder="URL giriniz"
-          autoComplete="off"
-          required
-          value={newPassword.URL}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, URL: e.target.value });
-          }}
-        />
-      </div>
     </div>
   );
 }
 
-export default WebLoginForm;
+export default SocialMediaAccountForm;

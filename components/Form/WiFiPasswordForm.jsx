@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 import { Eye, EyeOff } from "lucide-react";
 
-function WebLoginForm() {
+function WiFiPasswordForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
@@ -18,35 +18,35 @@ function WebLoginForm() {
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="email">E-posta</Label>
+        <Label htmlFor="wifiName">WiFi İsmi</Label>
         <Input
-          type="email"
-          id="email"
-          placeholder="E-posta giriniz"
+          type="text"
+          id="wifiName"
+          placeholder="WiFi ismi giriniz"
           autoComplete="off"
           required
-          value={newPassword.email}
+          value={newPassword.wifiName}
           onChange={(e) => {
             e.preventDefault();
 
-            setNewPassword({ ...newPassword, email: e.target.value });
+            setNewPassword({ ...newPassword, wifiName: e.target.value });
           }}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="password">Şifre</Label>
+        <Label htmlFor="wifiPassword">WiFi Şifresi</Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
-            id="password"
-            placeholder="Şifre giriniz"
+            id="wifiPassword"
+            placeholder="WiFi şifresi giriniz"
             autoComplete="off"
             required
-            value={newPassword.password}
+            value={newPassword.wifiPassword}
             onChange={(e) => {
               e.preventDefault();
 
-              setNewPassword({ ...newPassword, password: e.target.value });
+              setNewPassword({ ...newPassword, wifiPassword: e.target.value });
             }}
           />
           <Button
@@ -67,26 +67,10 @@ function WebLoginForm() {
           </Button>
         </div>
         <PasswordGenerator />
-        <PasswordStrength password={newPassword.password} />
-      </div>
-      <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="URL">URL</Label>
-        <Input
-          type="url"
-          id="URL"
-          placeholder="URL giriniz"
-          autoComplete="off"
-          required
-          value={newPassword.URL}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, URL: e.target.value });
-          }}
-        />
+        <PasswordStrength password={newPassword.wifiPassword} />
       </div>
     </div>
   );
 }
 
-export default WebLoginForm;
+export default WiFiPasswordForm;

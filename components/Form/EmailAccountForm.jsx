@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 import { Eye, EyeOff } from "lucide-react";
 
-function WebLoginForm() {
+function EmailAccountForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
@@ -69,24 +69,8 @@ function WebLoginForm() {
         <PasswordGenerator />
         <PasswordStrength password={newPassword.password} />
       </div>
-      <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="URL">URL</Label>
-        <Input
-          type="url"
-          id="URL"
-          placeholder="URL giriniz"
-          autoComplete="off"
-          required
-          value={newPassword.URL}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, URL: e.target.value });
-          }}
-        />
-      </div>
     </div>
   );
 }
 
-export default WebLoginForm;
+export default EmailAccountForm;

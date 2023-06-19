@@ -1,38 +1,38 @@
 export const passwordTypes = [
   {
     value: "webLogin",
-    name: "Web Girişi",
+    text: "Web Girişi",
   },
   {
     value: "creditCard",
-    name: "Kredi Kartı",
+    text: "Kredi Kartı",
   },
   {
     value: "identificationDocument",
-    name: "Kimlik Belgesi",
+    text: "Kimlik Belgesi",
   },
   {
     value: "note",
-    name: "Not",
+    text: "Not",
   },
   {
     value: "socialMediaAccount",
-    name: "Sosyal Medya Hesabı",
+    text: "Sosyal Medya Hesabı",
   },
   {
     value: "emailAccount",
-    name: "E-posta Hesabı",
+    text: "E-posta Hesabı",
   },
   {
     value: "wiFiPassword",
-    name: "WiFi Şifresi",
+    text: "WiFi Şifresi",
   },
   {
     value: "bankAccount",
-    name: "Banka Hesabı",
+    text: "Banka Hesabı",
   },
   {
     value: "address",
-    name: "Adres",
+    text: "Adres",
   },
 ];

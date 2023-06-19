@@ -22,4 +22,40 @@ export const passwordTypeStates = {
     birthDate: "",
     seriesNumber: "",
   },
+  note: {
+    passwordType: "note",
+    passwordTitle: "",
+    note: "",
+  },
+  socialMediaAccount: {
+    passwordType: "socialMediaAccount",
+    passwordTitle: "",
+    username: "",
+    password: "",
+  },
+  emailAccount: {
+    passwordType: "emailAccount",
+    passwordTitle: "",
+    email: "",
+    password: "",
+  },
+  wiFiPassword: {
+    passwordType: "wiFiPassword",
+    passwordTitle: "",
+    wifiName: "",
+    wifiPassword: "",
+  },
+  bankAccount: {
+    passwordType: "bankAccount",
+    passwordTitle: "",
+    iban: "",
+    fullName: "",
+  },
+  address: {
+    passwordType: "address",
+    passwordTitle: "",
+    city: undefined,
+    district: undefined,
+    address: "",
+  },
 };

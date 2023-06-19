@@ -72,7 +72,10 @@ function AddNewPasswordDialog() {
               <>
                 <SelectMenu
                   value={newPassword.passwordType}
-                  passwordTypes={passwordTypes}
+                  data={passwordTypes}
+                  label={"Şifre Türü"}
+                  id={"passwordType"}
+                  placeholder={"Şifre türü seçiniz"}
                   onValueChange={(string) => {
                     setNewPassword(passwordTypeStates[string]);
                   }}
