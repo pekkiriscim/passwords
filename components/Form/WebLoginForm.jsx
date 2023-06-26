@@ -66,7 +66,7 @@ function WebLoginForm() {
             )}
           </Button>
         </div>
-        <PasswordGenerator />
+        <PasswordGenerator passwordName={"password"} />
         <PasswordStrength password={newPassword.password} />
       </div>
       <div className="grid w-full gap-y-1.5">

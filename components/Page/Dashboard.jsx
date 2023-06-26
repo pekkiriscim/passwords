@@ -2,6 +2,8 @@ import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import SearchBar from "@/components/SearchBar";
 
+import { Toaster } from "@/components/ui/toaster";
+
 function Dashboard() {
   return (
     <div className="w-full h-full grid grid-cols-[17.5rem_1fr]">
@@ -15,6 +17,7 @@ function Dashboard() {
         />
         <SearchBar />
       </div>
+      <Toaster />
     </div>
   );
 }

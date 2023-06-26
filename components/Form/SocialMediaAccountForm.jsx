@@ -66,7 +66,7 @@ function SocialMediaAccountForm() {
             )}
           </Button>
         </div>
-        <PasswordGenerator />
+        <PasswordGenerator passwordName={"password"} />
         <PasswordStrength password={newPassword.password} />
       </div>
     </div>

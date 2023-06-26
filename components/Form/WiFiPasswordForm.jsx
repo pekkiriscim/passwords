@@ -66,7 +66,7 @@ function WiFiPasswordForm() {
             )}
           </Button>
         </div>
-        <PasswordGenerator />
+        <PasswordGenerator passwordName={"wifiPassword"} />
         <PasswordStrength password={newPassword.wifiPassword} />
       </div>
     </div>
