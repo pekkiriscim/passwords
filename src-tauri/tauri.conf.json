@@ -12,7 +12,20 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "fs": {
+        "all": false,
+        "copyFile": false,
+        "createDir": false,
+        "exists": true,
+        "readDir": false,
+        "readFile": true,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "scope": ["$DESKTOP/*"],
+        "writeFile": true
+      }
     },
     "bundle": {
       "active": true,
