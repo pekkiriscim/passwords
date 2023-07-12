@@ -30,9 +30,11 @@ function Authentication() {
             auth.password
           );
 
-          setPasswords(passwords);
+          if (passwords) {
+            setPasswords(passwords);
 
-          setAuth({ ...auth, isAuthorized: true });
+            setAuth({ ...auth, isAuthorized: true });
+          }
 
           setIsLoading(false);
         }}
