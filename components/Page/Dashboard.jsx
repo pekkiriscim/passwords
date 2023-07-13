@@ -1,20 +1,13 @@
-import { useContext } from "react";
-
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import SearchBar from "@/components/SearchBar";
-
-import { PasswordsContext } from "@/app/page";
-
-import { Toaster } from "@/components/ui/toaster";
+import Passwords from "@/components/Passwords";
 
 function Dashboard() {
-  const { passwords } = useContext(PasswordsContext);
-
   return (
     <div className="w-full h-full grid grid-cols-[17.5rem_1fr]">
       <Sidebar />
-      <div className="w-full h-full px-8 py-6">
+      <div className="w-full h-full px-8 py-6 overflow-auto">
         <Header
           title={"Şifreler"}
           description={
@@ -22,9 +15,8 @@ function Dashboard() {
           }
         />
         <SearchBar />
-        <pre>{JSON.stringify(passwords, null, 2)}</pre>
+        <Passwords />
       </div>
-      <Toaster />
     </div>
   );
 }

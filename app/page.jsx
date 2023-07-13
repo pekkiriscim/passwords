@@ -5,6 +5,8 @@ import { createContext, useState } from "react";
 import Authentication from "@/components/Page/Authentication";
 import Dashboard from "@/components/Page/Dashboard";
 
+import { Toaster } from "@/components/ui/toaster";
+
 export const AuthContext = createContext();
 export const PasswordsContext = createContext();
 
@@ -23,6 +25,7 @@ export default function Home() {
         value={{ passwords: passwords, setPasswords: setPasswords }}
       >
         {auth.isAuthorized ? <Dashboard /> : <Authentication />}
+        <Toaster />
       </PasswordsContext.Provider>
     </AuthContext.Provider>
   );
