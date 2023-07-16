@@ -49,7 +49,12 @@ function AddNewPasswordDialog() {
 
     setIsLoading(true);
 
-    const newPasswords = [...passwords, newPassword];
+    const currentTimestamp = Date.now();
+
+    const newPasswords = [
+      ...passwords,
+      { ...newPassword, passwordId: currentTimestamp },
+    ];
 
     const newPasswordsState = await savePasswords(
       newPasswords,
@@ -110,7 +115,7 @@ function AddNewPasswordDialog() {
                       setNewPassword(passwordTypeStates[string]);
                     }}
                   />
-                  <div className="grid w-full gap-y-1.5 pt-4">
+                  <div className="grid w-full gap-y-1.5 py-4">
                     <Label htmlFor="passwordTitle">Başlık</Label>
                     <Input
                       type="text"
