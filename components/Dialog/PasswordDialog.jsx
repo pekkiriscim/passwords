@@ -2,9 +2,10 @@
 
 import { useState, createContext, useContext, useEffect } from "react";
 
-import PasswordForm from "@/components/Form/PasswordForm";
-
 import { PasswordsContext, AuthContext } from "@/app/page";
+import { PasswordDialogContext } from "@/components/Page/Dashboard";
+
+import PasswordForm from "@/components/Form/PasswordForm";
 
 import { Button } from "@/components/ui/button";
 
@@ -27,60 +28,81 @@ import { addNewPassword } from "@/utils/addNewPassword";
 
 export const NewPasswordContext = createContext();
 
-function PasswordDialog({ isEditing, password }) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [step, setStep] = useState();
+function PasswordDialog() {
   const [newPassword, setNewPassword] = useState();
-  const [isLoading, setIsLoading] = useState(false);
 
-  const { passwords, setPasswords } = useContext(PasswordsContext);
   const { auth } = useContext(AuthContext);
+  const { passwords, setPasswords } = useContext(PasswordsContext);
+
+  const { passwordDialog, setPasswordDialog } = useContext(
+    PasswordDialogContext
+  );
 
   useEffect(() => {
-    if (isEditing) {
-      setStep(2);
-      setNewPassword(password);
+    if (passwordDialog.isUpdating) {
+      setNewPassword(passwordDialog.updatePassword);
+
+      setPasswordDialog({ ...passwordDialog, step: 2 });
     } else {
-      setStep(1);
       setNewPassword(passwordTypeStates.webLogin);
+
+      setPasswordDialog({ ...passwordDialog, step: 1 });
     }
-  }, [isEditing, password]);
+  }, [passwordDialog.isUpdating, passwordDialog.updatePassword]);
 
   const handleStep1 = (e) => {
     e.preventDefault();
-    setStep(1);
+
+    setPasswordDialog({ ...passwordDialog, step: 1 });
   };
 
   const handleStep2 = (e) => {
     e.preventDefault();
-    setStep(2);
+
+    setPasswordDialog({ ...passwordDialog, step: 2 });
   };
 
   const openDialog = (e) => {
     e.preventDefault();
-    setIsDialogOpen(true);
+
+    setPasswordDialog({
+      ...passwordDialog,
+      isOpen: true,
+      isUpdating: false,
+      step: 1,
+    });
   };
 
   const closeDialog = (e) => {
     e.preventDefault();
-    setIsDialogOpen(false);
+
+    if (passwordDialog.isUpdating) {
+      setNewPassword(passwordDialog.updatePassword);
+
+      setPasswordDialog({ ...passwordDialog, isUpdating: false });
+    } else {
+      setNewPassword(passwordTypeStates.webLogin);
+    }
+
+    setPasswordDialog({ ...passwordDialog, isOpen: false });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true);
+    setPasswordDialog({ ...passwordDialog, isLoading: true });
 
-    if (isEditing) {
+    if (passwordDialog.isUpdating) {
       const updatedPasswordsState = await updatePassword(
         passwords,
-        password,
+        passwordDialog.updatePassword,
         newPassword,
         auth
       );
 
       setPasswords(updatedPasswordsState);
-      setNewPassword(password);
+
+      setNewPassword(passwordDialog.updatePassword);
     } else {
       const newPasswordsState = await addNewPassword(
         passwords,
@@ -89,65 +111,72 @@ function PasswordDialog({ isEditing, password }) {
       );
 
       setPasswords(newPasswordsState);
-      setStep(1);
+
+      setPasswordDialog({ ...passwordDialog, step: 1 });
+
       setNewPassword(passwordTypeStates.webLogin);
     }
 
-    setIsDialogOpen(false);
-    setIsLoading(false);
+    setPasswordDialog({ ...passwordDialog, isOpen: false, isLoading: false });
   };
 
   return (
     <NewPasswordContext.Provider
       value={{ newPassword: newPassword, setNewPassword: setNewPassword }}
     >
-      <Dialog open={isDialogOpen}>
+      <Dialog open={passwordDialog.isOpen}>
         <DialogTrigger asChild>
           <Button
             type="button"
-            className={`whitespace-nowrap ${isEditing ? "rounded-xsm" : ""}`}
-            variant={isEditing ? "secondary" : "default"}
+            className="whitespace-nowrap"
+            variant="default"
             onClick={openDialog}
           >
-            {isEditing ? (
-              "Düzenle"
-            ) : (
-              <>
-                <Plus className="mr-2 h-4 w-4" />
-                Yeni Şifre Ekle
-              </>
-            )}
+            <Plus className="mr-2 h-4 w-4" />
+            Yeni Şifre Ekle
           </Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
-              {isEditing ? "Şifreyi Düzenle" : "Yeni Şifre Ekle"}
+              {passwordDialog.isUpdating
+                ? "Şifreyi Düzenle"
+                : "Yeni Şifre Ekle"}
             </DialogTitle>
             <DialogDescription>
-              {isEditing
+              {passwordDialog.isUpdating
                 ? "Bu şifreyi düzenlemek için gerekli bilgileri girin ve kaydedin."
                 : "Yeni bir şifre oluşturmak için gerekli bilgileri girin ve kaydedin."}
             </DialogDescription>
           </DialogHeader>
-          <form onSubmit={step === 1 ? handleStep2 : handleSubmit}>
-            <fieldset disabled={isLoading}>
-              {step === 1 && <PasswordForm />}
-              {step === 2 &&
+          <form
+            onSubmit={passwordDialog.step === 1 ? handleStep2 : handleSubmit}
+          >
+            <fieldset disabled={passwordDialog.isLoading}>
+              {passwordDialog.step === 1 && <PasswordForm />}
+              {passwordDialog.step === 2 &&
                 newPassword.passwordType &&
                 formTypes[newPassword.passwordType]}
               <div className="grid grid-cols-2 gap-x-2 pt-4">
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={isEditing || step === 1 ? closeDialog : handleStep1}
+                  onClick={
+                    passwordDialog.isUpdating
+                      ? closeDialog
+                      : passwordDialog.step === 2
+                      ? handleStep1
+                      : closeDialog
+                  }
                 >
-                  {isEditing || step === 1 ? "İptal" : "Geri"}
+                  {passwordDialog.isUpdating || passwordDialog.step === 1
+                    ? "İptal"
+                    : "Geri"}
                 </Button>
                 <Button type="submit">
-                  {isLoading ? (
+                  {passwordDialog.isLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
-                  ) : isEditing || step === 2 ? (
+                  ) : passwordDialog.isUpdating || passwordDialog.step === 2 ? (
                     "Kaydet"
                   ) : (
                     "İleri"

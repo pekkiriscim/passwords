@@ -31,8 +31,4 @@ export const passwordTypes = [
     value: "bankAccount",
     text: "Banka Hesabı",
   },
-  {
-    value: "address",
-    text: "Adres",
-  },
 ];

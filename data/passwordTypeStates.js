@@ -51,11 +51,4 @@ export const passwordTypeStates = {
     iban: "",
     fullName: "",
   },
-  address: {
-    passwordType: "address",
-    passwordTitle: "",
-    city: undefined,
-    district: undefined,
-    address: "",
-  },
 };

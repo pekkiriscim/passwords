@@ -6,7 +6,6 @@ import SocialMediaAccountForm from "@/components/Form/SocialMediaAccountForm";
 import EmailAccountForm from "@/components/Form/EmailAccountForm";
 import WiFiPasswordForm from "@/components/Form/WiFiPasswordForm";
 import BankAccountForm from "@/components/Form/BankAccountForm";
-import AddressForm from "@/components/Form/AddressForm";
 
 export const formTypes = {
   webLogin: <WebLoginForm />,
@@ -17,5 +16,4 @@ export const formTypes = {
   emailAccount: <EmailAccountForm />,
   wiFiPassword: <WiFiPasswordForm />,
   bankAccount: <BankAccountForm />,
-  address: <AddressForm />,
 };

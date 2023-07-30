@@ -1,8 +1,27 @@
+import { useContext, useEffect } from "react";
+
+import { FilterContext, PasswordsContext } from "@/app/page";
+
 import { Button } from "@/components/ui/button";
 
 import { sidebarContents } from "@/data/sidebarContents";
 
 function Sidebar() {
+  const { filter, setFilter } = useContext(FilterContext);
+  const { passwords } = useContext(PasswordsContext);
+
+  useEffect(() => {
+    if (filter.passwordType === "passwords") {
+      setFilter({ ...filter, filteredPasswords: passwords });
+    } else {
+      const filteredPasswords = passwords.filter(
+        (element) => element.passwordType === filter.passwordType
+      );
+
+      setFilter({ ...filter, filteredPasswords: filteredPasswords });
+    }
+  }, [filter.passwordType, passwords]);
+
   return (
     <div className="h-full py-4 border-r space-y-4">
       {Object.values(sidebarContents).map((element, index) => {
@@ -16,9 +35,18 @@ function Sidebar() {
                 return (
                   <Button
                     key={index}
-                    variant="ghost"
+                    variant={
+                      element.value === filter.passwordType
+                        ? "secondary"
+                        : "ghost"
+                    }
                     size="sm"
                     className="w-full justify-start"
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      setFilter({ ...filter, passwordType: element.value });
+                    }}
                   >
                     {element.icon}
                     {element.name}
