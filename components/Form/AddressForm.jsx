@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 
-import { NewPasswordContext } from "@/components/Dialog/AddNewPasswordDialog";
+import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
 
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -24,7 +24,23 @@ function AddressForm() {
   );
 
   useEffect(() => {
-    if (districts !== undefined) {
+    if (newPassword.city && !newPassword.district) {
+      return;
+    }
+
+    let isUpdating;
+
+    if (districts === undefined) {
+      isUpdating = false;
+    } else {
+      const isDistrictTrue = districts.districts.find(
+        (obj) => obj.text === newPassword.district
+      );
+
+      isDistrictTrue === undefined ? (isUpdating = false) : (isUpdating = true);
+    }
+
+    if (districts !== undefined && isUpdating === false) {
       setNewPassword({ ...newPassword, district: districts.districts[0].text });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

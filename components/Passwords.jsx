@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import DeletePasswordDialog from "@/components/Dialog/DeletePasswordDialog";
-import EditPasswordDialog from "@/components/Dialog/EditPasswordDialog";
+import PasswordDialog from "@/components/Dialog/PasswordDialog";
 
 import { PasswordsContext } from "@/app/page";
 
@@ -35,7 +35,7 @@ function Passwords() {
                 </pre>
                 <div className="grid mt-4 grid-cols-2 gap-x-2">
                   <DeletePasswordDialog passwordId={password.passwordId} />
-                  <EditPasswordDialog />
+                  <PasswordDialog isEditing={true} password={password} />
                 </div>
               </AccordionContent>
             </AccordionItem>

@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 
 import PasswordStrength from "@/components/PasswordStrength";
 import PasswordGenerator from "@/components/PasswordGenerator";
-import { NewPasswordContext } from "@/components/Dialog/AddNewPasswordDialog";
+import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
