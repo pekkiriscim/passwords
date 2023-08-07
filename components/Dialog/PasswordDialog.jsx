@@ -26,6 +26,8 @@ import { formTypes } from "@/data/formTypes";
 import { updatePassword } from "@/utils/updatePassword";
 import { addNewPassword } from "@/utils/addNewPassword";
 
+import { useTranslation } from "react-i18next";
+
 export const NewPasswordContext = createContext();
 
 function PasswordDialog() {
@@ -120,6 +122,8 @@ function PasswordDialog() {
     setPasswordDialog({ ...passwordDialog, isOpen: false, isLoading: false });
   };
 
+  const { t } = useTranslation();
+
   return (
     <NewPasswordContext.Provider
       value={{ newPassword: newPassword, setNewPassword: setNewPassword }}
@@ -133,20 +137,20 @@ function PasswordDialog() {
             onClick={openDialog}
           >
             <Plus className="mr-2 h-4 w-4" />
-            Yeni Şifre Ekle
+            {t("dashboard.password_dialog.add_new_password_button")}
           </Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>
               {passwordDialog.isUpdating
-                ? "Şifreyi Düzenle"
-                : "Yeni Şifre Ekle"}
+                ? t("dashboard.password_dialog.dialog_title_edit")
+                : t("dashboard.password_dialog.dialog_title_add")}
             </DialogTitle>
             <DialogDescription>
               {passwordDialog.isUpdating
-                ? "Bu şifreyi düzenlemek için gerekli bilgileri girin ve kaydedin."
-                : "Yeni bir şifre oluşturmak için gerekli bilgileri girin ve kaydedin."}
+                ? t("dashboard.password_dialog.dialog_description_edit")
+                : t("dashboard.password_dialog.dialog_description_add")}
             </DialogDescription>
           </DialogHeader>
           <form
@@ -170,16 +174,16 @@ function PasswordDialog() {
                   }
                 >
                   {passwordDialog.isUpdating || passwordDialog.step === 1
-                    ? "İptal"
-                    : "Geri"}
+                    ? t("dashboard.password_dialog.dialog_cancel_button")
+                    : t("dashboard.password_dialog.dialog_back_button")}
                 </Button>
                 <Button type="submit">
                   {passwordDialog.isLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
                   ) : passwordDialog.isUpdating || passwordDialog.step === 2 ? (
-                    "Kaydet"
+                    t("dashboard.password_dialog.dialog_save_button")
                   ) : (
-                    "İleri"
+                    t("dashboard.password_dialog.dialog_next_button")
                   )}
                 </Button>
               </div>

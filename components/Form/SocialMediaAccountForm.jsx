@@ -10,19 +10,27 @@ import { Button } from "@/components/ui/button";
 
 import { Eye, EyeOff } from "lucide-react";
 
+import { useTranslation } from "react-i18next";
+
 function SocialMediaAccountForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
 
+  const { t } = useTranslation();
+
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="username">Kullanıcı Adı</Label>
+        <Label htmlFor="username">
+          {t("dashboard.social_media_account_form.username_label")}
+        </Label>
         <Input
           type="text"
           id="username"
-          placeholder="Kullanıcı adı giriniz"
+          placeholder={t(
+            "dashboard.social_media_account_form.username_placeholder"
+          )}
           autoComplete="off"
           required
           value={newPassword.username}
@@ -34,12 +42,16 @@ function SocialMediaAccountForm() {
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="password">Şifre</Label>
+        <Label htmlFor="password">
+          {t("dashboard.social_media_account_form.password_label")}
+        </Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
             id="password"
-            placeholder="Şifre giriniz"
+            placeholder={t(
+              "dashboard.social_media_account_form.password_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.password}

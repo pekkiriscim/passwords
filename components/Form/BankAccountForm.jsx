@@ -5,17 +5,23 @@ import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import { useTranslation } from "react-i18next";
+
 function BankAccountForm() {
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
+
+  const { t } = useTranslation();
 
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="iban">IBAN</Label>
+        <Label htmlFor="iban">
+          {t("dashboard.bank_account_form.iban_label")}
+        </Label>
         <Input
           type="text"
           id="iban"
-          placeholder="TR"
+          placeholder={t("dashboard.bank_account_form.iban_placeholder")}
           autoComplete="off"
           required
           value={newPassword.iban}
@@ -26,7 +32,9 @@ function BankAccountForm() {
               .toUpperCase()
               .replace(/[^A-Z0-9]/g, "");
             formattedIban = formattedIban.slice(0, 26);
-            let formattedDisplay = "TR";
+            let formattedDisplay = t(
+              "dashboard.bank_account_form.iban_placeholder"
+            );
             for (let i = 2; i < formattedIban.length; i += 4) {
               formattedDisplay += " " + formattedIban.slice(i, i + 4);
             }
@@ -36,11 +44,13 @@ function BankAccountForm() {
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="fullName">Ad Soyad</Label>
+        <Label htmlFor="fullName">
+          {t("dashboard.bank_account_form.full_name_label")}
+        </Label>
         <Input
           type="text"
           id="fullName"
-          placeholder="Ad soyad giriniz"
+          placeholder={t("dashboard.bank_account_form.full_name_placeholder")}
           autoComplete="off"
           required
           value={newPassword.fullName}

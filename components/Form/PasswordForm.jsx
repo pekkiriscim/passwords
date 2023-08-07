@@ -10,27 +10,33 @@ import { Input } from "@/components//ui/input";
 import { passwordTypes } from "@/data/passwordTypes";
 import { passwordTypeStates } from "@/data/passwordTypeStates";
 
+import { useTranslation } from "react-i18next";
+
 function PasswordForm() {
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
+
+  const { t } = useTranslation();
 
   return (
     <>
       <SelectMenu
         value={newPassword.passwordType}
         data={passwordTypes}
-        label={"Şifre Türü"}
+        label={t("dashboard.password_form.password_type_label")}
         id={"passwordType"}
-        placeholder={"Şifre türü seçiniz"}
+        placeholder={t("dashboard.password_form.password_type_placeholder")}
         onValueChange={(string) => {
           setNewPassword(passwordTypeStates[string]);
         }}
       />
       <div className="grid w-full gap-y-1.5 py-4">
-        <Label htmlFor="passwordTitle">Başlık</Label>
+        <Label htmlFor="passwordTitle">
+          {t("dashboard.password_form.password_title_label")}
+        </Label>
         <Input
           type="text"
           id="passwordTitle"
-          placeholder="Başlık giriniz"
+          placeholder={t("dashboard.password_form.password_title_placeholder")}
           autoComplete="off"
           required
           value={newPassword.passwordTitle}

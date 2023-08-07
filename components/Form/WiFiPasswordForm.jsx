@@ -10,19 +10,25 @@ import { Button } from "@/components/ui/button";
 
 import { Eye, EyeOff } from "lucide-react";
 
+import { useTranslation } from "react-i18next";
+
 function WiFiPasswordForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
 
+  const { t } = useTranslation();
+
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="wifiName">WiFi İsmi</Label>
+        <Label htmlFor="wifiName">
+          {t("dashboard.wifi_password_form.wifi_name_label")}
+        </Label>
         <Input
           type="text"
           id="wifiName"
-          placeholder="WiFi ismi giriniz"
+          placeholder={t("dashboard.wifi_password_form.wifi_name_placeholder")}
           autoComplete="off"
           required
           value={newPassword.wifiName}
@@ -34,12 +40,16 @@ function WiFiPasswordForm() {
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="wifiPassword">WiFi Şifresi</Label>
+        <Label htmlFor="wifiPassword">
+          {t("dashboard.wifi_password_form.wifi_password_label")}
+        </Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
             id="wifiPassword"
-            placeholder="WiFi şifresi giriniz"
+            placeholder={t(
+              "dashboard.wifi_password_form.wifi_password_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.wifiPassword}

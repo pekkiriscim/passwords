@@ -6,11 +6,15 @@ import PasswordDialog from "@/components/Dialog/PasswordDialog";
 
 import { Input } from "@/components/ui/input";
 
+import { useTranslation } from "react-i18next";
+
 function SearchBar() {
   const [search, setSearch] = useState("");
 
   const { passwords } = useContext(PasswordsContext);
   const { filter, setFilter } = useContext(FilterContext);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (search === "") {
@@ -55,7 +59,7 @@ function SearchBar() {
       <Input
         value={search}
         type="text"
-        placeholder="Ara"
+        placeholder={t("dashboard.search_bar.search_placeholder")}
         spellCheck="false"
         onChange={handleSearch}
       />

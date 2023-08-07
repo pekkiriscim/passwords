@@ -10,11 +10,15 @@ import { Loader2, Lock } from "lucide-react";
 
 import { handleAuthentication } from "@/utils/handleAuthentication";
 
+import { useTranslation } from "react-i18next";
+
 function Authentication() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { auth, setAuth } = useContext(AuthContext);
   const { setPasswords } = useContext(PasswordsContext);
+
+  const { t } = useTranslation();
 
   return (
     <div className="w-full h-full flex items-center justify-center">
@@ -44,18 +48,17 @@ function Authentication() {
         </div>
         <div className="flex flex-col items-center mb-6">
           <h1 className="text-2xl font-semibold tracking-tight mb-2 text-center">
-            Kolay Kullanım, Yüksek Güvenlik.
+            {t("authentication.form.heading")}
           </h1>
           <p className="text-sm text-muted-foreground text-center">
-            Passwords, hızlı giriş, güçlü şifreleme ve kullanıcı dostu arayüzü
-            ile şifrelerinizi yönetmenin en iyi yoludur.
+            {t("authentication.form.subheading")}
           </p>
         </div>
         <div className="grid gap-y-2 mb-4">
-          <Label htmlFor="email">E-posta</Label>
+          <Label htmlFor="email">{t("authentication.form.email_label")}</Label>
           <Input
             id="email"
-            placeholder="E-postanızı giriniz"
+            placeholder={t("authentication.form.email_placeholder")}
             type="email"
             autoCapitalize="none"
             autoComplete="off"
@@ -71,10 +74,12 @@ function Authentication() {
           />
         </div>
         <div className="grid gap-y-2 mb-6">
-          <Label htmlFor="password">Şifre</Label>
+          <Label htmlFor="password">
+            {t("authentication.form.password_label")}
+          </Label>
           <Input
             id="password"
-            placeholder="Şifrenizi giriniz"
+            placeholder={t("authentication.form.password_placeholder")}
             type="password"
             autoCapitalize="none"
             autoComplete="off"
@@ -91,7 +96,11 @@ function Authentication() {
         </div>
         <Button className="w-full" disabled={isLoading}>
           {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
-          {!isLoading && <span className="ml-2">Devam Et</span>}
+          {!isLoading && (
+            <span className="ml-2">
+              {t("authentication.form.continue_button")}
+            </span>
+          )}
         </Button>
         <pre>{JSON.stringify(auth, null, 2)}</pre>
       </form>

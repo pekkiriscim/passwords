@@ -5,17 +5,25 @@ import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import { useTranslation } from "react-i18next";
+
 function CreditCardForm() {
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
+
+  const { t } = useTranslation();
 
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="creditCardNumber">Kart Numarası</Label>
+        <Label htmlFor="creditCardNumber">
+          {t("dashboard.credit_card_form.credit_card_number_label")}
+        </Label>
         <Input
           type="text"
           id="creditCardNumber"
-          placeholder="•••• •••• •••• ••••"
+          placeholder={t(
+            "dashboard.credit_card_form.credit_card_number_placeholder"
+          )}
           autoComplete="off"
           required
           value={newPassword.creditCardNumber}
@@ -38,11 +46,15 @@ function CreditCardForm() {
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="cardHolderName">Kart Üzerindeki İsim</Label>
+        <Label htmlFor="cardHolderName">
+          {t("dashboard.credit_card_form.card_holder_name_label")}
+        </Label>
         <Input
           type="text"
           id="cardHolderName"
-          placeholder="Kart üzerindeki ismi giriniz"
+          placeholder={t(
+            "dashboard.credit_card_form.card_holder_name_placeholder"
+          )}
           autoComplete="off"
           required
           value={newPassword.cardHolderName}
@@ -55,11 +67,15 @@ function CreditCardForm() {
       </div>
       <div className="grid grid-cols-2 gap-x-2">
         <div className="grid w-full gap-y-1.5">
-          <Label htmlFor="expirationDate">Son Kullanma Tarihi</Label>
+          <Label htmlFor="expirationDate">
+            {t("dashboard.credit_card_form.expiration_date_label")}
+          </Label>
           <Input
             type="text"
             id="expirationDate"
-            placeholder="Ay / Yıl"
+            placeholder={t(
+              "dashboard.credit_card_form.expiration_date_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.expirationDate}
@@ -85,11 +101,15 @@ function CreditCardForm() {
           />
         </div>
         <div className="grid w-full gap-y-1.5">
-          <Label htmlFor="securityCode">Güvenlik Kodu</Label>
+          <Label htmlFor="securityCode">
+            {t("dashboard.credit_card_form.security_code_label")}
+          </Label>
           <Input
             type="text"
             id="securityCode"
-            placeholder="CVC / CVV"
+            placeholder={t(
+              "dashboard.credit_card_form.security_code_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.securityCode}

@@ -1,0 +1,112 @@
+{
+  "authentication": {
+    "form": {
+      "heading": "Şifrelerinize Güvenli Erişim",
+      "subheading": "Şifrelerinizi korumanın artık daha kolay bir yolu var. Sadece e-posta adresinizi ve ana şifrenizi girerek şifrelenmiş kasanıza erişebilirsiniz. Varolan şifrelenmiş dosyanız açılacak ya da yoksa yeni bir dosya oluşturulacaktır.",
+      "email_label": "E-posta",
+      "email_placeholder": "E-posta adresinizi girin",
+      "password_label": "Şifre",
+      "password_placeholder": "Şifrenizi girin",
+      "continue_button": "Devam Et"
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "passwords": "Passwords",
+      "passwords_children": {
+        "passwords": "Şifreler"
+      },
+      "categories": "Kategoriler",
+      "categories_children": {
+        "webLogins": "Web Girişleri",
+        "creditCards": "Kredi Kartları",
+        "identificationDocuments": "Kimlik Belgeleri",
+        "notes": "Notlar",
+        "socialMediaAccounts": "Sosyal Medya Hesapları",
+        "emailAccounts": "E-posta Hesapları",
+        "wiFiPasswords": "WiFi Şifreleri",
+        "bankAccounts": "Banka Hesapları"
+      }
+    },
+    "header": {},
+    "search_bar": {
+      "search_placeholder": "Ara"
+    },
+    "passwords": {
+      "edit_button": "Düzenle"
+    },
+    "password_dialog": {
+      "add_new_password_button": "Yeni Şifre Ekle",
+      "dialog_title_edit": "Şifreyi Düzenle",
+      "dialog_title_add": "Yeni Şifre Ekle",
+      "dialog_description_edit": "Bu şifreyi düzenlemek için gerekli bilgileri girin ve kaydedin.",
+      "dialog_description_add": "Yeni bir şifre oluşturmak için gerekli bilgileri girin ve kaydedin.",
+      "dialog_cancel_button": "İptal",
+      "dialog_back_button": "Geri",
+      "dialog_save_button": "Kaydet",
+      "dialog_next_button": "İleri"
+    },
+    "password_form": {
+      "password_type_label": "Şifre Türü",
+      "password_type_placeholder": "Şifre türü seçiniz",
+      "password_title_label": "Başlık",
+      "password_title_placeholder": "Başlık giriniz"
+    },
+    "bank_account_form": {
+      "iban_label": "IBAN",
+      "iban_placeholder": "TR",
+      "full_name_label": "Ad Soyad",
+      "full_name_placeholder": "Ad soyad giriniz"
+    },
+    "credit_card_form": {
+      "credit_card_number_label": "Kart Numarası",
+      "credit_card_number_placeholder": "•••• •••• •••• ••••",
+      "card_holder_name_label": "Kart Üzerindeki İsim",
+      "card_holder_name_placeholder": "Kart üzerindeki ismi giriniz",
+      "expiration_date_label": "Son Kullanma Tarihi",
+      "expiration_date_placeholder": "AA / YY",
+      "security_code_label": "Güvenlik Kodu",
+      "security_code_placeholder": "CVC / CVV"
+    },
+    "email_account_form": {
+      "email_label": "E-posta",
+      "email_placeholder": "E-posta giriniz",
+      "password_label": "Şifre",
+      "password_placeholder": "Şifre giriniz"
+    },
+    "identification_document_form": {
+      "identity_number_label": "Kimlik Numarası",
+      "identity_number_placeholder": "Kimlik numarası giriniz",
+      "full_name_label": "Ad Soyad",
+      "full_name_placeholder": "Ad soyad giriniz",
+      "birth_date_label": "Doğum Tarihi",
+      "birth_date_placeholder": "GG / AA / YYYY",
+      "series_number_label": "Seri Numarası",
+      "series_number_placeholder": "Seri numarası giriniz"
+    },
+    "note_form": {
+      "note_label": "Not",
+      "note_placeholder": "Not giriniz"
+    },
+    "social_media_account_form": {
+      "username_label": "Kullanıcı Adı",
+      "username_placeholder": "Kullanıcı adı giriniz",
+      "password_label": "Şifre",
+      "password_placeholder": "Şifre giriniz"
+    },
+    "web_login_form": {
+      "email_label": "E-posta",
+      "email_placeholder": "E-posta giriniz",
+      "password_label": "Şifre",
+      "password_placeholder": "Şifre giriniz",
+      "url_label": "URL",
+      "url_placeholder": "URL giriniz"
+    },
+    "wifi_password_form": {
+      "wifi_name_label": "WiFi İsmi",
+      "wifi_name_placeholder": "WiFi ismi giriniz",
+      "wifi_password_label": "WiFi Şifresi",
+      "wifi_password_placeholder": "WiFi şifresi giriniz"
+    }
+  }
+}

@@ -5,17 +5,25 @@ import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+import { useTranslation } from "react-i18next";
+
 function IdentificationDocumentForm() {
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
+
+  const { t } = useTranslation();
 
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="identityNumber">Kimlik Numarası</Label>
+        <Label htmlFor="identityNumber">
+          {t("dashboard.identification_document_form.identity_number_label")}
+        </Label>
         <Input
           type="text"
           id="identityNumber"
-          placeholder="Kimlik numarası giriniz"
+          placeholder={t(
+            "dashboard.identification_document_form.identity_number_placeholder"
+          )}
           autoComplete="off"
           required
           value={newPassword.identityNumber}
@@ -32,11 +40,15 @@ function IdentificationDocumentForm() {
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="fullName">Ad Soyad</Label>
+        <Label htmlFor="fullName">
+          {t("dashboard.identification_document_form.full_name_label")}
+        </Label>
         <Input
           type="text"
           id="fullName"
-          placeholder="Ad soyad giriniz"
+          placeholder={t(
+            "dashboard.identification_document_form.full_name_placeholder"
+          )}
           autoComplete="off"
           required
           value={newPassword.fullName}
@@ -52,11 +64,15 @@ function IdentificationDocumentForm() {
       </div>
       <div className="grid grid-cols-2 gap-x-2">
         <div className="grid w-full gap-y-1.5">
-          <Label htmlFor="birthDate">Doğum Tarihi</Label>
+          <Label htmlFor="birthDate">
+            {t("dashboard.identification_document_form.birth_date_label")}
+          </Label>
           <Input
             type="text"
             id="birthDate"
-            placeholder="GG / AA / YYYY"
+            placeholder={t(
+              "dashboard.identification_document_form.birth_date_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.birthDate}
@@ -82,11 +98,15 @@ function IdentificationDocumentForm() {
           />
         </div>
         <div className="grid w-full gap-y-1.5">
-          <Label htmlFor="seriesNumber">Seri Numarası</Label>
+          <Label htmlFor="seriesNumber">
+            {t("dashboard.identification_document_form.series_number_label")}
+          </Label>
           <Input
             type="text"
             id="seriesNumber"
-            placeholder="Seri numarası giriniz"
+            placeholder={t(
+              "dashboard.identification_document_form.series_number_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.seriesNumber}

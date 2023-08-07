@@ -16,12 +16,16 @@ import {
 
 import { passwordIcons } from "@/data/passwordIcons";
 
+import { useTranslation } from "react-i18next";
+
 function Passwords() {
   const { filter } = useContext(FilterContext);
 
   const { passwordDialog, setPasswordDialog } = useContext(
     PasswordDialogContext
   );
+
+  const { t } = useTranslation();
 
   return (
     <Accordion type="single" collapsible>
@@ -56,7 +60,7 @@ function Passwords() {
                       });
                     }}
                   >
-                    Düzenle
+                    {t("dashboard.passwords.edit_button")}
                   </Button>
                 </div>
               </AccordionContent>

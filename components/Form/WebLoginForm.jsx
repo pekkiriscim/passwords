@@ -10,19 +10,25 @@ import { Button } from "@/components/ui/button";
 
 import { Eye, EyeOff } from "lucide-react";
 
+import { useTranslation } from "react-i18next";
+
 function WebLoginForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
 
+  const { t } = useTranslation();
+
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="email">E-posta</Label>
+        <Label htmlFor="email">
+          {t("dashboard.web_login_form.email_label")}
+        </Label>
         <Input
           type="email"
           id="email"
-          placeholder="E-posta giriniz"
+          placeholder={t("dashboard.web_login_form.email_placeholder")}
           autoComplete="off"
           required
           value={newPassword.email}
@@ -34,12 +40,14 @@ function WebLoginForm() {
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="password">Şifre</Label>
+        <Label htmlFor="password">
+          {t("dashboard.web_login_form.password_label")}
+        </Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
             id="password"
-            placeholder="Şifre giriniz"
+            placeholder={t("dashboard.web_login_form.password_placeholder")}
             autoComplete="off"
             required
             value={newPassword.password}
@@ -70,11 +78,11 @@ function WebLoginForm() {
         <PasswordStrength password={newPassword.password} />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="URL">URL</Label>
+        <Label htmlFor="URL">{t("dashboard.web_login_form.url_label")}</Label>
         <Input
           type="url"
           id="URL"
-          placeholder="URL giriniz"
+          placeholder={t("dashboard.web_login_form.url_placeholder")}
           autoComplete="off"
           required
           value={newPassword.URL}
