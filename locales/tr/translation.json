@@ -28,7 +28,20 @@
         "bankAccounts": "Banka Hesapları"
       }
     },
-    "header": {},
+    "header": {
+      "password_types": {
+        "passwords": "Tüm Şifreler",
+        "webLogin": "Web Girişleri",
+        "creditCard": "Kredi Kartları",
+        "identificationDocument": "Kimlik Belgeleri",
+        "note": "Notlar",
+        "socialMediaAccount": "Sosyal Medya Hesapları",
+        "emailAccount": "E-posta Hesapları",
+        "wiFiPassword": "WiFi Şifreleri",
+        "bankAccount": "Banka Hesapları"
+      },
+      "description": "Şifrelerinizi güvenli bir şekilde yönetin ve erişim sağlayın."
+    },
     "search_bar": {
       "search_placeholder": "Ara"
     },

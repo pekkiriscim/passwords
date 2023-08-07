@@ -28,7 +28,20 @@
         "bankAccounts": "Bank Accounts"
       }
     },
-    "header": {},
+    "header": {
+      "password_types": {
+        "passwords": "All Passwords",
+        "webLogin": "Web Logins",
+        "creditCard": "Credit Cards",
+        "identificationDocument": "Identity Documents",
+        "note": "Notes",
+        "socialMediaAccount": "Social Media Accounts",
+        "emailAccount": "Email Accounts",
+        "wiFiPassword": "WiFi Passwords",
+        "bankAccount": "Bank Accounts"
+      },
+      "description": "Safely manage and access your passwords."
+    },
     "search_bar": {
       "search_placeholder": "Search"
     },
