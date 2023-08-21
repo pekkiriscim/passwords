@@ -161,7 +161,7 @@ function PasswordDialog() {
               {passwordDialog.step === 2 &&
                 newPassword.passwordType &&
                 formTypes[newPassword.passwordType]}
-              <div className="grid grid-cols-2 gap-x-2 pt-4">
+              <div className="grid grid-cols-2 gap-x-3 pt-4">
                 <Button
                   type="button"
                   variant="outline"

@@ -62,7 +62,7 @@ function IdentificationDocumentForm() {
           }}
         />
       </div>
-      <div className="grid grid-cols-2 gap-x-2">
+      <div className="grid grid-cols-2 gap-x-3">
         <div className="grid w-full gap-y-1.5">
           <Label htmlFor="birthDate">
             {t("dashboard.identification_document_form.birth_date_label")}

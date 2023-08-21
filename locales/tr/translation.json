@@ -120,6 +120,13 @@
       "wifi_name_placeholder": "WiFi ismi giriniz",
       "wifi_password_label": "WiFi Şifresi",
       "wifi_password_placeholder": "WiFi şifresi giriniz"
+    },
+    "delete_password_dialog": {
+      "delete_button": "Sil",
+      "dialog_title_delete": "Şifreyi Sil",
+      "dialog_description_delete": "Bu şifreyi kalıcı olarak silmek istediğinizden emin misiniz?",
+      "dialog_cancel_button": "İptal",
+      "dialog_delete_button": "Sil"
     }
   }
 }

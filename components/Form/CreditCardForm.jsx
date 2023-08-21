@@ -65,7 +65,7 @@ function CreditCardForm() {
           }}
         />
       </div>
-      <div className="grid grid-cols-2 gap-x-2">
+      <div className="grid grid-cols-2 gap-x-3">
         <div className="grid w-full gap-y-1.5">
           <Label htmlFor="expirationDate">
             {t("dashboard.credit_card_form.expiration_date_label")}

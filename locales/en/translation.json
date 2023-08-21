@@ -120,6 +120,13 @@
       "wifi_name_placeholder": "Enter the WiFi name",
       "wifi_password_label": "WiFi Password",
       "wifi_password_placeholder": "Enter the WiFi password"
+    },
+    "delete_password_dialog": {
+      "delete_button": "Delete",
+      "dialog_title_delete": "Delete Password",
+      "dialog_description_delete": "Are you sure you want to delete this password permanently?",
+      "dialog_cancel_button": "Cancel",
+      "dialog_delete_button": "Delete"
     }
   }
 }

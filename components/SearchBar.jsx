@@ -55,7 +55,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="grid mt-8 w-full grid-cols-[1fr_auto] gap-x-4">
+    <div className="grid mt-8 w-full grid-cols-[1fr_auto] gap-x-3">
       <Input
         value={search}
         type="text"

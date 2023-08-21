@@ -64,7 +64,7 @@ function SocialMediaAccountForm() {
           <Button
             type="button"
             variant="outline"
-            className="ml-2"
+            className="ml-3"
             onClick={(e) => {
               e.preventDefault();
 

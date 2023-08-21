@@ -17,6 +17,8 @@ import { Loader2 } from "lucide-react";
 
 import { savePasswords } from "@/utils/savePasswords";
 
+import { useTranslation } from "react-i18next";
+
 function DeletePasswordDialog({ passwordId }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +50,8 @@ function DeletePasswordDialog({ passwordId }) {
     setIsLoading(false);
   };
 
+  const { t } = useTranslation();
+
   return (
     <Dialog open={isDialogOpen}>
       <DialogTrigger asChild>
@@ -61,17 +65,19 @@ function DeletePasswordDialog({ passwordId }) {
             setIsDialogOpen(true);
           }}
         >
-          Sil
+          {t("dashboard.delete_password_dialog.delete_button")}
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Şifreyi Sil</DialogTitle>
+          <DialogTitle>
+            {t("dashboard.delete_password_dialog.dialog_title_delete")}
+          </DialogTitle>
           <DialogDescription>
-            Bu şifreyi kalıcı olarak silmek istediğinizden emin misiniz?
+            {t("dashboard.delete_password_dialog.dialog_description_delete")}
           </DialogDescription>
         </DialogHeader>
-        <div className="grid grid-cols-2 gap-x-2 pt-4">
+        <div className="grid grid-cols-2 gap-x-3 pt-4">
           <Button
             type="button"
             variant="outline"
@@ -82,7 +88,7 @@ function DeletePasswordDialog({ passwordId }) {
               setIsDialogOpen(false);
             }}
           >
-            İptal
+            {t("dashboard.delete_password_dialog.dialog_cancel_button")}
           </Button>
           <Button
             type="button"
@@ -90,7 +96,11 @@ function DeletePasswordDialog({ passwordId }) {
             disabled={isLoading}
             onClick={deletePassword}
           >
-            {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Sil"}
+            {isLoading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              t("dashboard.delete_password_dialog.dialog_delete_button")
+            )}
           </Button>
         </div>
       </DialogContent>
