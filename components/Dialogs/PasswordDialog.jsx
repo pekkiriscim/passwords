@@ -3,9 +3,9 @@
 import { useState, createContext, useContext, useEffect } from "react";
 
 import { PasswordsContext, AuthContext } from "@/app/page";
-import { PasswordDialogContext } from "@/components/Page/Dashboard";
+import { PasswordDialogContext } from "@/components/Pages/Dashboard";
 
-import PasswordForm from "@/components/Form/PasswordForm";
+import PasswordForm from "@/components/Forms/PasswordForm";
 
 import { Button } from "@/components/ui/button";
 
@@ -20,8 +20,8 @@ import {
 
 import { Plus, Loader2 } from "lucide-react";
 
-import { passwordTypeStates } from "@/data/passwordTypeStates";
-import { formTypes } from "@/data/formTypes";
+import { passwordTypeStates } from "@/constants/componentMappings";
+import { formComponents } from "@/constants/componentMappings";
 
 import { updatePassword } from "@/utils/updatePassword";
 import { addNewPassword } from "@/utils/addNewPassword";
@@ -160,7 +160,7 @@ function PasswordDialog() {
               {passwordDialog.step === 1 && <PasswordForm />}
               {passwordDialog.step === 2 &&
                 newPassword.passwordType &&
-                formTypes[newPassword.passwordType]}
+                formComponents[newPassword.passwordType]}
               <div className="grid grid-cols-2 gap-x-3 pt-4">
                 <Button
                   type="button"

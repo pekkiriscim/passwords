@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
+import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";

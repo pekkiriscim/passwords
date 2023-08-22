@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 
 import PasswordStrength from "@/components/PasswordStrength";
 import PasswordGenerator from "@/components/PasswordGenerator";
-import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
+import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +12,7 @@ import { Eye, EyeOff } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
 
-function EmailAccountForm() {
+function SocialMediaAccountForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
@@ -22,32 +22,36 @@ function EmailAccountForm() {
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="email">
-          {t("dashboard.email_account_form.email_label")}
+        <Label htmlFor="username">
+          {t("dashboard.social_media_account_form.username_label")}
         </Label>
         <Input
-          type="email"
-          id="email"
-          placeholder={t("dashboard.email_account_form.email_placeholder")}
+          type="text"
+          id="username"
+          placeholder={t(
+            "dashboard.social_media_account_form.username_placeholder"
+          )}
           autoComplete="off"
           required
-          value={newPassword.email}
+          value={newPassword.username}
           onChange={(e) => {
             e.preventDefault();
 
-            setNewPassword({ ...newPassword, email: e.target.value });
+            setNewPassword({ ...newPassword, username: e.target.value });
           }}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
         <Label htmlFor="password">
-          {t("dashboard.email_account_form.password_label")}
+          {t("dashboard.social_media_account_form.password_label")}
         </Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
             id="password"
-            placeholder={t("dashboard.email_account_form.password_placeholder")}
+            placeholder={t(
+              "dashboard.social_media_account_form.password_placeholder"
+            )}
             autoComplete="off"
             required
             value={newPassword.password}
@@ -81,4 +85,4 @@ function EmailAccountForm() {
   );
 }
 
-export default EmailAccountForm;
+export default SocialMediaAccountForm;

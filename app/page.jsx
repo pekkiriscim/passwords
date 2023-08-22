@@ -2,8 +2,8 @@
 
 import { createContext, useState } from "react";
 
-import Authentication from "@/components/Page/Authentication";
-import Dashboard from "@/components/Page/Dashboard";
+import Authentication from "@/components/Pages/Authentication";
+import Dashboard from "@/components/Pages/Dashboard";
 
 import { Toaster } from "@/components/ui/toaster";
 

@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 
 import PasswordStrength from "@/components/PasswordStrength";
 import PasswordGenerator from "@/components/PasswordGenerator";
-import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
+import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +12,7 @@ import { Eye, EyeOff } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
 
-function SocialMediaAccountForm() {
+function WebLoginForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
@@ -22,36 +22,32 @@ function SocialMediaAccountForm() {
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="username">
-          {t("dashboard.social_media_account_form.username_label")}
+        <Label htmlFor="email">
+          {t("dashboard.web_login_form.email_label")}
         </Label>
         <Input
-          type="text"
-          id="username"
-          placeholder={t(
-            "dashboard.social_media_account_form.username_placeholder"
-          )}
+          type="email"
+          id="email"
+          placeholder={t("dashboard.web_login_form.email_placeholder")}
           autoComplete="off"
           required
-          value={newPassword.username}
+          value={newPassword.email}
           onChange={(e) => {
             e.preventDefault();
 
-            setNewPassword({ ...newPassword, username: e.target.value });
+            setNewPassword({ ...newPassword, email: e.target.value });
           }}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
         <Label htmlFor="password">
-          {t("dashboard.social_media_account_form.password_label")}
+          {t("dashboard.web_login_form.password_label")}
         </Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
             id="password"
-            placeholder={t(
-              "dashboard.social_media_account_form.password_placeholder"
-            )}
+            placeholder={t("dashboard.web_login_form.password_placeholder")}
             autoComplete="off"
             required
             value={newPassword.password}
@@ -81,8 +77,24 @@ function SocialMediaAccountForm() {
         <PasswordGenerator passwordName={"password"} />
         <PasswordStrength password={newPassword.password} />
       </div>
+      <div className="grid w-full gap-y-1.5">
+        <Label htmlFor="URL">{t("dashboard.web_login_form.url_label")}</Label>
+        <Input
+          type="url"
+          id="URL"
+          placeholder={t("dashboard.web_login_form.url_placeholder")}
+          autoComplete="off"
+          required
+          value={newPassword.URL}
+          onChange={(e) => {
+            e.preventDefault();
+
+            setNewPassword({ ...newPassword, URL: e.target.value });
+          }}
+        />
+      </div>
     </div>
   );
 }
 
-export default SocialMediaAccountForm;
+export default WebLoginForm;

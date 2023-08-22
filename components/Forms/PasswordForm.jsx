@@ -2,13 +2,13 @@ import { useContext } from "react";
 
 import SelectMenu from "@/components/SelectMenu";
 
-import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
+import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 
 import { Label } from "@/components//ui/label";
 import { Input } from "@/components//ui/input";
 
-import { passwordTypes } from "@/data/passwordTypes";
-import { passwordTypeStates } from "@/data/passwordTypeStates";
+import { passwordTypeOptions } from "@/constants/componentMappings";
+import { passwordTypeStates } from "@/constants/componentMappings";
 
 import { useTranslation } from "react-i18next";
 
@@ -21,7 +21,7 @@ function PasswordForm() {
     <>
       <SelectMenu
         value={newPassword.passwordType}
-        data={passwordTypes}
+        data={passwordTypeOptions}
         label={t("dashboard.password_form.password_type_label")}
         id={"passwordType"}
         placeholder={t("dashboard.password_form.password_type_placeholder")}

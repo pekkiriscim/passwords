@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 
 import PasswordStrength from "@/components/PasswordStrength";
 import PasswordGenerator from "@/components/PasswordGenerator";
-import { NewPasswordContext } from "@/components/Dialog/PasswordDialog";
+import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +12,7 @@ import { Eye, EyeOff } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
 
-function WebLoginForm() {
+function WiFiPasswordForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
@@ -22,39 +22,41 @@ function WebLoginForm() {
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="email">
-          {t("dashboard.web_login_form.email_label")}
+        <Label htmlFor="wifiName">
+          {t("dashboard.wifi_password_form.wifi_name_label")}
         </Label>
         <Input
-          type="email"
-          id="email"
-          placeholder={t("dashboard.web_login_form.email_placeholder")}
+          type="text"
+          id="wifiName"
+          placeholder={t("dashboard.wifi_password_form.wifi_name_placeholder")}
           autoComplete="off"
           required
-          value={newPassword.email}
+          value={newPassword.wifiName}
           onChange={(e) => {
             e.preventDefault();
 
-            setNewPassword({ ...newPassword, email: e.target.value });
+            setNewPassword({ ...newPassword, wifiName: e.target.value });
           }}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="password">
-          {t("dashboard.web_login_form.password_label")}
+        <Label htmlFor="wifiPassword">
+          {t("dashboard.wifi_password_form.wifi_password_label")}
         </Label>
         <div className="flex">
           <Input
             type={isPasswordVisible ? "text" : "password"}
-            id="password"
-            placeholder={t("dashboard.web_login_form.password_placeholder")}
+            id="wifiPassword"
+            placeholder={t(
+              "dashboard.wifi_password_form.wifi_password_placeholder"
+            )}
             autoComplete="off"
             required
-            value={newPassword.password}
+            value={newPassword.wifiPassword}
             onChange={(e) => {
               e.preventDefault();
 
-              setNewPassword({ ...newPassword, password: e.target.value });
+              setNewPassword({ ...newPassword, wifiPassword: e.target.value });
             }}
           />
           <Button
@@ -74,27 +76,11 @@ function WebLoginForm() {
             )}
           </Button>
         </div>
-        <PasswordGenerator passwordName={"password"} />
-        <PasswordStrength password={newPassword.password} />
-      </div>
-      <div className="grid w-full gap-y-1.5">
-        <Label htmlFor="URL">{t("dashboard.web_login_form.url_label")}</Label>
-        <Input
-          type="url"
-          id="URL"
-          placeholder={t("dashboard.web_login_form.url_placeholder")}
-          autoComplete="off"
-          required
-          value={newPassword.URL}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, URL: e.target.value });
-          }}
-        />
+        <PasswordGenerator passwordName={"wifiPassword"} />
+        <PasswordStrength password={newPassword.wifiPassword} />
       </div>
     </div>
   );
 }
 
-export default WebLoginForm;
+export default WiFiPasswordForm;
