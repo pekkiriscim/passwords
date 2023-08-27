@@ -19,6 +19,8 @@ import { Sparkles } from "lucide-react";
 
 import { generatePassword } from "@/utils/generatePassword";
 
+import { useTranslation } from "react-i18next";
+
 function PasswordGenerator({ passwordName }) {
   const [generateSettings, setGenerateSettings] = useState({
     length: 8,
@@ -31,6 +33,8 @@ function PasswordGenerator({ passwordName }) {
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
 
   const { toast } = useToast();
+
+  const { t } = useTranslation();
 
   return (
     <TooltipProvider>
@@ -47,9 +51,10 @@ function PasswordGenerator({ passwordName }) {
 
               if (generatedPassword === null) {
                 toast({
-                  title: "Oops! Bir şeyler ters gitti.",
-                  description:
-                    "En az bir kriter seçerek otomatik parola oluşturmanız gerekiyor.",
+                  title: t("dashboard.password_generator.error_title"),
+                  description: t(
+                    "dashboard.password_generator.error_description"
+                  ),
                 });
               } else {
                 setNewPassword({
@@ -60,7 +65,7 @@ function PasswordGenerator({ passwordName }) {
             }}
           >
             <Sparkles className="w-4 h-4 mr-2" />
-            Otomatik Oluştur
+            {t("dashboard.password_generator.button")}
           </Button>
         </TooltipTrigger>
         <TooltipContent
@@ -69,7 +74,9 @@ function PasswordGenerator({ passwordName }) {
         >
           <div className="grid w-full p-4 border rounded-xsm gap-y-3">
             <div className="flex items-center justify-between">
-              <p className="text-foreground">Uzunluk</p>
+              <p className="text-foreground">
+                {t("dashboard.password_generator.length")}
+              </p>
               <p className="text-foreground">{generateSettings.length}</p>
             </div>
             <Slider
@@ -84,7 +91,7 @@ function PasswordGenerator({ passwordName }) {
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
             <Label htmlFor="lowercase" className="text-foreground">
-              Küçük harfler
+              {t("dashboard.password_generator.lowercase")}
             </Label>
             <Switch
               checked={generateSettings.includeLowerCase}
@@ -99,7 +106,7 @@ function PasswordGenerator({ passwordName }) {
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
             <Label htmlFor="uppercase" className="text-foreground">
-              Büyük harfler
+              {t("dashboard.password_generator.uppercase")}
             </Label>
             <Switch
               checked={generateSettings.includeUpperCase}
@@ -114,7 +121,7 @@ function PasswordGenerator({ passwordName }) {
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
             <Label htmlFor="digit" className="text-foreground">
-              Rakamlar
+              {t("dashboard.password_generator.digit")}
             </Label>
             <Switch
               checked={generateSettings.includeDigits}
@@ -129,7 +136,7 @@ function PasswordGenerator({ passwordName }) {
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
             <Label htmlFor="specialCharacter" className="text-foreground">
-              Özel karakterler
+              {t("dashboard.password_generator.special_character")}
             </Label>
             <Switch
               checked={generateSettings.includeSpecialChars}

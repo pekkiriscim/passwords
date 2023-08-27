@@ -127,6 +127,23 @@
       "dialog_description_delete": "Are you sure you want to delete this password permanently?",
       "dialog_cancel_button": "Cancel",
       "dialog_delete_button": "Delete"
+    },
+    "password_generator": {
+      "error_title": "Oops! Something went wrong.",
+      "error_description": "You need to select at least one criterion to generate an automatic password.",
+      "button": "Generate Automatically",
+      "length": "Length",
+      "lowercase": "Lowercase Letters",
+      "uppercase": "Uppercase Letters",
+      "digit": "Digits",
+      "special_character": "Special Characters"
+    },
+    "password_strength": {
+      "is_length_sufficient": "It's recommended to have passwords with a minimum length of 8 characters.",
+      "has_lowercase": "Using lowercase letters in passwords is recommended.",
+      "has_uppercase": "Using uppercase letters in passwords is recommended.",
+      "has_digit": "Including digits in passwords is recommended.",
+      "has_special_character": "Using special characters in passwords is recommended."
     }
   }
 }

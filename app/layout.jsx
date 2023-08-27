@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     i18n.changeLanguage(userLanguage);
   }, []);
   return (
-    <html lang="tr">
+    <html>
       <body className={inter.className}>{children}</body>
     </html>
   );

@@ -127,6 +127,23 @@
       "dialog_description_delete": "Bu şifreyi kalıcı olarak silmek istediğinizden emin misiniz?",
       "dialog_cancel_button": "İptal",
       "dialog_delete_button": "Sil"
+    },
+    "password_generator": {
+      "error_title": "Üzgünüz! Bir şeyler ters gitti.",
+      "error_description": "Otomatik bir şifre oluşturmak için en az bir kriter seçmelisiniz.",
+      "button": "Otomatik Oluştur",
+      "length": "Uzunluk",
+      "lowercase": "Küçük Harfler",
+      "uppercase": "Büyük Harfler",
+      "digit": "Rakamlar",
+      "special_character": "Özel Karakterler"
+    },
+    "password_strength": {
+      "is_length_sufficient": "Şifrelerin en az 8 karakter uzunluğunda olması önerilir.",
+      "has_lowercase": "Şifrelerde küçük harf kullanmanız önerilir.",
+      "has_uppercase": "Şifrelerde büyük harf kullanmanız önerilir.",
+      "has_digit": "Şifrelerde rakam kullanmanız önerilir.",
+      "has_special_character": "Şifrelerde özel karakter kullanmanız önerilir."
     }
   }
 }

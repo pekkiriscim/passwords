@@ -30,7 +30,7 @@ export const handleAuthentication = async (email, password) => {
 
       const parsedContent = JSON.parse(decryptedContent);
 
-      console.log("Dosya okundu!", parsedContent);
+      console.log("File Read Successfully!", parsedContent);
 
       return parsedContent;
     } else {
@@ -54,7 +54,7 @@ export const handleAuthentication = async (email, password) => {
 
       const parsedContent = JSON.parse(decryptedContent);
 
-      console.log("Dosya oluşturuldu ve okundu!", parsedContent);
+      console.log("File Created and Read Successfully!", parsedContent);
 
       return parsedContent;
     }
