@@ -32,13 +32,14 @@ function Passwords() {
     <Accordion type="single" collapsible>
       <div className="grid gap-y-4 mt-8">
         {filter.filteredPasswords.map((password, index) => {
+          const IconComponent = passwordIcons[password.passwordType];
           const CardComponent = cardComponents[password.passwordType];
 
           return (
             <AccordionItem key={index} value={password.passwordId}>
               <AccordionTrigger>
                 <span className="flex items-center">
-                  {passwordIcons[password.passwordType]}
+                  <IconComponent className="mr-4 h-5 w-5" />
                   {password.passwordTitle}
                 </span>
               </AccordionTrigger>

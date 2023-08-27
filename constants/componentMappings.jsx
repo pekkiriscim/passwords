@@ -50,14 +50,14 @@ export const cardComponents = {
 };
 
 export const passwordIcons = {
-  webLogin: <Globe className="mr-4 h-5 w-5" />,
-  creditCard: <CreditCard className="mr-4 h-5 w-5" />,
-  identificationDocument: <UserCircle2 className="mr-4 h-5 w-5" />,
-  note: <FileText className="mr-4 h-5 w-5" />,
-  socialMediaAccount: <AtSign className="mr-4 h-5 w-5" />,
-  emailAccount: <Mail className="mr-4 h-5 w-5" />,
-  wiFiPassword: <Wifi className="mr-4 h-5 w-5" />,
-  bankAccount: <Landmark className="mr-4 h-5 w-5" />,
+  webLogin: Globe,
+  creditCard: CreditCard,
+  identificationDocument: UserCircle2,
+  note: FileText,
+  socialMediaAccount: AtSign,
+  emailAccount: Mail,
+  wiFiPassword: Wifi,
+  bankAccount: Landmark,
 };
 
 export const passwordTypeOptions = [
