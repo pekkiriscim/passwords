@@ -76,9 +76,21 @@
   * {
     @apply border-border;
   }
+
   html,
   body {
     @apply bg-background text-foreground w-full h-full;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html::-webkit-scrollbar,
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  html,
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

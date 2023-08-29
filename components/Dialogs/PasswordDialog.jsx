@@ -188,7 +188,6 @@ function PasswordDialog() {
                 </Button>
               </div>
             </fieldset>
-            <pre>{JSON.stringify(newPassword, null, 2)}</pre>
           </form>
         </DialogContent>
       </Dialog>

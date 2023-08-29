@@ -102,7 +102,6 @@ function Authentication() {
             </span>
           )}
         </Button>
-        <pre>{JSON.stringify(auth, null, 2)}</pre>
       </form>
     </div>
   );

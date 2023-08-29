@@ -25,7 +25,7 @@ function Dashboard() {
     >
       <div className="w-full h-full grid grid-cols-[17.5rem_1fr]">
         <Sidebar />
-        <div className="w-full h-full px-8 py-6 overflow-auto">
+        <div className="w-full h-full px-8 py-6 overflow-auto hide-scrollbar">
           <Header />
           <SearchBar />
           <Passwords />

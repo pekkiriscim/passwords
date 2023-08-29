@@ -31,46 +31,48 @@ function Passwords() {
   return (
     <Accordion type="single" collapsible>
       <div className="grid gap-y-4 mt-8">
-        {filter.filteredPasswords.map((password, index) => {
-          const IconComponent = passwordIcons[password.passwordType];
-          const CardComponent = cardComponents[password.passwordType];
+        {filter.filteredPasswords
+          .sort((a, b) => b.passwordId - a.passwordId)
+          .map((password, index) => {
+            const IconComponent = passwordIcons[password.passwordType];
+            const CardComponent = cardComponents[password.passwordType];
 
-          return (
-            <AccordionItem key={index} value={password.passwordId}>
-              <AccordionTrigger>
-                <span className="flex items-center">
-                  <IconComponent className="mr-4 h-5 w-5" />
-                  {password.passwordTitle}
-                </span>
-              </AccordionTrigger>
-              <AccordionContent>
-                <div className="p-4 border rounded-xsm grid grid-flow-row gap-y-2">
-                  <CardComponent password={password} />
-                </div>
-                <div className="grid mt-4 grid-cols-2 gap-x-3">
-                  <DeletePasswordDialog passwordId={password.passwordId} />
-                  <Button
-                    type="button"
-                    className="whitespace-nowrap rounded-xsm"
-                    variant="secondary"
-                    onClick={(e) => {
-                      e.preventDefault();
+            return (
+              <AccordionItem key={index} value={password.passwordId}>
+                <AccordionTrigger>
+                  <span className="flex items-center">
+                    <IconComponent className="mr-4 h-5 w-5" />
+                    {password.passwordTitle}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="p-4 border rounded-xsm grid grid-flow-row gap-y-2">
+                    <CardComponent password={password} />
+                  </div>
+                  <div className="grid mt-4 grid-cols-2 gap-x-3">
+                    <DeletePasswordDialog passwordId={password.passwordId} />
+                    <Button
+                      type="button"
+                      className="whitespace-nowrap rounded-xsm"
+                      variant="secondary"
+                      onClick={(e) => {
+                        e.preventDefault();
 
-                      setPasswordDialog({
-                        ...passwordDialog,
-                        isOpen: true,
-                        isUpdating: true,
-                        updatePassword: password,
-                      });
-                    }}
-                  >
-                    {t("dashboard.passwords.edit_button")}
-                  </Button>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          );
-        })}
+                        setPasswordDialog({
+                          ...passwordDialog,
+                          isOpen: true,
+                          isUpdating: true,
+                          updatePassword: password,
+                        });
+                      }}
+                    >
+                      {t("dashboard.passwords.edit_button")}
+                    </Button>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
       </div>
     </Accordion>
   );
