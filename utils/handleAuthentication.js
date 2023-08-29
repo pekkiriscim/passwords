@@ -1,4 +1,9 @@
-import { exists, writeTextFile, readTextFile } from "@tauri-apps/api/fs";
+import {
+  exists,
+  writeTextFile,
+  readTextFile,
+  createDir,
+} from "@tauri-apps/api/fs";
 
 import SHA256 from "crypto-js/sha256";
 import AES from "crypto-js/aes";
@@ -34,6 +39,8 @@ export const handleAuthentication = async (email, password) => {
 
       return parsedContent;
     } else {
+      await createDir("", { dir: filePath, recursive: true });
+
       const encryptedContent = AES.encrypt(
         JSON.stringify([]),
         email + password

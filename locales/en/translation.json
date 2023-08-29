@@ -144,6 +144,10 @@
       "has_uppercase": "Using uppercase letters in passwords is recommended.",
       "has_digit": "Including digits in passwords is recommended.",
       "has_special_character": "Using special characters in passwords is recommended."
+    },
+    "empty_state": {
+      "title": "Welcome!",
+      "description": "It's the Perfect Time to Begin! Start managing your passwords right away."
     }
   }
 }

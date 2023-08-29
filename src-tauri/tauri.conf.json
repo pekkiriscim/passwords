@@ -16,14 +16,14 @@
       "fs": {
         "all": false,
         "copyFile": false,
-        "createDir": false,
+        "createDir": true,
         "exists": true,
         "readDir": false,
         "readFile": true,
         "removeDir": false,
         "removeFile": false,
         "renameFile": false,
-        "scope": ["$DESKTOP/*"],
+        "scope": ["$APPDATA/*", "$APPDATA"],
         "writeFile": true
       }
     },
@@ -42,7 +42,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.pekkiriscim.passwords",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -71,7 +71,7 @@
         "fullscreen": false,
         "height": 1000,
         "resizable": true,
-        "title": "passwords",
+        "title": "Passwords",
         "width": 1500
       }
     ]

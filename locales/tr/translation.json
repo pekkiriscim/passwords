@@ -144,6 +144,10 @@
       "has_uppercase": "Şifrelerde büyük harf kullanmanız önerilir.",
       "has_digit": "Şifrelerde rakam kullanmanız önerilir.",
       "has_special_character": "Şifrelerde özel karakter kullanmanız önerilir."
+    },
+    "empty_state": {
+      "title": "Hoş Geldiniz!",
+      "description": "Başlamak için harika bir zaman! Şifrelerinizi hemen yönetmeye başlayın."
     }
   }
 }
