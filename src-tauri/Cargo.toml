@@ -1,11 +1,11 @@
 [package]
-name = "app"
+name = "passwords"
 version = "0.1.0"
 description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
-default-run = "app"
+authors = ["Mustafa Pekkirişci"]
+license = "MIT"
+repository = "https://github.com/pekkiriscim/passwords"
+default-run = "passwords"
 edition = "2021"
 rust-version = "1.60"
 

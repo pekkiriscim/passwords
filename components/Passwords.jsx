@@ -44,13 +44,13 @@ function Passwords() {
               return (
                 <AccordionItem key={index} value={password.passwordId}>
                   <AccordionTrigger>
-                    <span className="flex items-center">
-                      <IconComponent className="mr-4 h-5 w-5" />
+                    <span className="flex items-center text-left">
+                      <IconComponent className="mr-4 h-5 w-5 min-w-[1.25rem] min-h-[1.25rem]" />
                       {password.passwordTitle}
                     </span>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="p-4 border rounded-xsm grid grid-flow-row gap-y-2">
+                    <div className="p-4 border rounded-xsm grid grid-flow-row card-wrapper gap-y-2">
                       <CardComponent password={password} />
                     </div>
                     <div className="grid mt-4 grid-cols-2 gap-x-3">

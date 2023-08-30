@@ -94,3 +94,9 @@
     scrollbar-width: none;
   }
 }
+
+@layer components {
+  .card-wrapper > * {
+    @apply overflow-auto whitespace-nowrap hide-scrollbar;
+  }
+}

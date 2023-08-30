@@ -7,7 +7,7 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "passwords",
+    "productName": "Passwords",
     "version": "0.1.0"
   },
   "tauri": {
@@ -69,10 +69,13 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 1000,
+        "height": 800,
+        "minHeight": 800,
         "resizable": true,
         "title": "Passwords",
-        "width": 1500
+        "width": 1024,
+        "minWidth": 640,
+        "center": true
       }
     ]
   }

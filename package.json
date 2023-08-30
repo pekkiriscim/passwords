@@ -1,7 +1,12 @@
 {
   "name": "passwords",
   "version": "0.1.0",
-  "private": true,
+  "description": "A Tauri App",
+  "homepage": "https://github.com/pekkiriscim/passwords",
+  "license": "MIT",
+  "author": {
+    "name": "Mustafa Pekkirişci"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
