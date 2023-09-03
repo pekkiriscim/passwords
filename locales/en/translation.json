@@ -63,7 +63,17 @@
       "password_type_label": "Password Type",
       "password_type_placeholder": "Select password type",
       "password_title_label": "Title",
-      "password_title_placeholder": "Enter title"
+      "password_title_placeholder": "Enter title",
+      "password_types": {
+        "webLogin": "Web Login",
+        "creditCard": "Credit Card",
+        "identificationDocument": "Identity Document",
+        "note": "Note",
+        "socialMediaAccount": "Social Media Account",
+        "emailAccount": "Email Account",
+        "wiFiPassword": "WiFi Password",
+        "bankAccount": "Bank Account"
+      }
     },
     "bank_account_form": {
       "iban_label": "IBAN",

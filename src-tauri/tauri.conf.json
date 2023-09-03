@@ -43,7 +43,7 @@
         "icons/icon.ico"
       ],
       "identifier": "com.pekkiriscim.passwords",
-      "longDescription": "",
+      "longDescription": "Passwords is an open-source desktop app that simplifies password management, offering a secure and user-friendly experience. Built with Tauri and Next.js.",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -52,7 +52,7 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "Easily secure and manage passwords with a desktop app powered by Tauri and Next.js.",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,

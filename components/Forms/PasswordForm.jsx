@@ -7,7 +7,6 @@ import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 import { Label } from "@/components//ui/label";
 import { Input } from "@/components//ui/input";
 
-import { passwordTypeOptions } from "@/constants/componentMappings";
 import { passwordTypeStates } from "@/constants/componentMappings";
 
 import { useTranslation } from "react-i18next";
@@ -16,6 +15,41 @@ function PasswordForm() {
   const { newPassword, setNewPassword } = useContext(NewPasswordContext);
 
   const { t } = useTranslation();
+
+  const passwordTypeOptions = [
+    {
+      value: "webLogin",
+      text: t("dashboard.password_form.password_types.webLogin"),
+    },
+    {
+      value: "creditCard",
+      text: t("dashboard.password_form.password_types.creditCard"),
+    },
+    {
+      value: "identificationDocument",
+      text: t("dashboard.password_form.password_types.identificationDocument"),
+    },
+    {
+      value: "note",
+      text: t("dashboard.password_form.password_types.note"),
+    },
+    {
+      value: "socialMediaAccount",
+      text: t("dashboard.password_form.password_types.socialMediaAccount"),
+    },
+    {
+      value: "emailAccount",
+      text: t("dashboard.password_form.password_types.emailAccount"),
+    },
+    {
+      value: "wiFiPassword",
+      text: t("dashboard.password_form.password_types.wiFiPassword"),
+    },
+    {
+      value: "bankAccount",
+      text: t("dashboard.password_form.password_types.bankAccount"),
+    },
+  ];
 
   return (
     <>

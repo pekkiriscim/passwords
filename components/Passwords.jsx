@@ -6,7 +6,7 @@ import { PasswordDialogContext } from "@/components/Pages/Dashboard";
 import DeletePasswordDialog from "@/components/Dialogs/DeletePasswordDialog";
 import EmptyState from "@/components/EmptyState";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 import {
   Accordion,

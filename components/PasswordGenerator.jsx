@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 
-import { NewPasswordContext } from "./Dialogs/PasswordDialog";
+import { NewPasswordContext } from "@/components/Dialogs/PasswordDialog";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components//ui/label";

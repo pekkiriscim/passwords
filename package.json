@@ -1,7 +1,7 @@
 {
   "name": "passwords",
   "version": "0.1.0",
-  "description": "A Tauri App",
+  "description": "Easily secure and manage passwords with a desktop app powered by Tauri and Next.js.",
   "homepage": "https://github.com/pekkiriscim/passwords",
   "license": "MIT",
   "author": {

@@ -63,7 +63,17 @@
       "password_type_label": "Şifre Türü",
       "password_type_placeholder": "Şifre türü seçiniz",
       "password_title_label": "Başlık",
-      "password_title_placeholder": "Başlık giriniz"
+      "password_title_placeholder": "Başlık giriniz",
+      "password_types": {
+        "webLogin": "Web Girişi",
+        "creditCard": "Kredi Kartı",
+        "identificationDocument": "Kimlik Belgesi",
+        "note": "Not",
+        "socialMediaAccount": "Sosyal Medya Hesabı",
+        "emailAccount": "E-posta Hesabı",
+        "wiFiPassword": "WiFi Şifresi",
+        "bankAccount": "Banka Hesabı"
+      }
     },
     "bank_account_form": {
       "iban_label": "IBAN",
