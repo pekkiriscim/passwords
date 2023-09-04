@@ -32,11 +32,9 @@ function WebLoginForm() {
           autoComplete="off"
           required
           value={newPassword.email}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, email: e.target.value });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, email: e.target.value })
+          }
         />
       </div>
       <div className="grid w-full gap-y-1.5">
@@ -51,11 +49,9 @@ function WebLoginForm() {
             autoComplete="off"
             required
             value={newPassword.password}
-            onChange={(e) => {
-              e.preventDefault();
-
-              setNewPassword({ ...newPassword, password: e.target.value });
-            }}
+            onChange={(e) =>
+              setNewPassword({ ...newPassword, password: e.target.value })
+            }
           />
           <Button
             type="button"
@@ -86,11 +82,9 @@ function WebLoginForm() {
           autoComplete="off"
           required
           value={newPassword.URL}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, URL: e.target.value });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, URL: e.target.value })
+          }
         />
       </div>
     </div>

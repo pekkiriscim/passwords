@@ -32,11 +32,9 @@ function WiFiPasswordForm() {
           autoComplete="off"
           required
           value={newPassword.wifiName}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, wifiName: e.target.value });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, wifiName: e.target.value })
+          }
         />
       </div>
       <div className="grid w-full gap-y-1.5">
@@ -53,11 +51,9 @@ function WiFiPasswordForm() {
             autoComplete="off"
             required
             value={newPassword.wifiPassword}
-            onChange={(e) => {
-              e.preventDefault();
-
-              setNewPassword({ ...newPassword, wifiPassword: e.target.value });
-            }}
+            onChange={(e) =>
+              setNewPassword({ ...newPassword, wifiPassword: e.target.value })
+            }
           />
           <Button
             type="button"

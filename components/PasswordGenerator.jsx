@@ -36,6 +36,24 @@ function PasswordGenerator({ passwordName }) {
 
   const { t } = useTranslation();
 
+  const handleGeneratePassword = (e) => {
+    e.preventDefault();
+
+    const generatedPassword = generatePassword(generateSettings);
+
+    if (!generatedPassword) {
+      toast({
+        title: t("dashboard.password_generator.error_title"),
+        description: t("dashboard.password_generator.error_description"),
+      });
+    } else {
+      setNewPassword({
+        ...newPassword,
+        [passwordName]: generatedPassword,
+      });
+    }
+  };
+
   return (
     <TooltipProvider>
       <Tooltip>
@@ -44,25 +62,7 @@ function PasswordGenerator({ passwordName }) {
             variant="secondary"
             type="button"
             className="whitespace-nowrap mt-1.5"
-            onClick={(e) => {
-              e.preventDefault();
-
-              const generatedPassword = generatePassword(generateSettings);
-
-              if (generatedPassword === null) {
-                toast({
-                  title: t("dashboard.password_generator.error_title"),
-                  description: t(
-                    "dashboard.password_generator.error_description"
-                  ),
-                });
-              } else {
-                setNewPassword({
-                  ...newPassword,
-                  [passwordName]: generatedPassword,
-                });
-              }
-            }}
+            onClick={handleGeneratePassword}
           >
             <Sparkles className="w-4 h-4 mr-2" />
             {t("dashboard.password_generator.button")}
@@ -84,9 +84,9 @@ function PasswordGenerator({ passwordName }) {
               min={6}
               max={64}
               step={1}
-              onValueChange={(number) => {
-                setGenerateSettings({ ...generateSettings, length: number });
-              }}
+              onValueChange={(number) =>
+                setGenerateSettings({ ...generateSettings, length: number })
+              }
             />
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
@@ -96,12 +96,12 @@ function PasswordGenerator({ passwordName }) {
             <Switch
               checked={generateSettings.includeLowerCase}
               id="lowercase"
-              onCheckedChange={(boolean) => {
+              onCheckedChange={(boolean) =>
                 setGenerateSettings({
                   ...generateSettings,
                   includeLowerCase: boolean,
-                });
-              }}
+                })
+              }
             />
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
@@ -111,12 +111,12 @@ function PasswordGenerator({ passwordName }) {
             <Switch
               checked={generateSettings.includeUpperCase}
               id="uppercase"
-              onCheckedChange={(boolean) => {
+              onCheckedChange={(boolean) =>
                 setGenerateSettings({
                   ...generateSettings,
                   includeUpperCase: boolean,
-                });
-              }}
+                })
+              }
             />
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
@@ -126,12 +126,12 @@ function PasswordGenerator({ passwordName }) {
             <Switch
               checked={generateSettings.includeDigits}
               id="digit"
-              onCheckedChange={(boolean) => {
+              onCheckedChange={(boolean) =>
                 setGenerateSettings({
                   ...generateSettings,
                   includeDigits: boolean,
-                });
-              }}
+                })
+              }
             />
           </div>
           <div className="flex w-full justify-between p-4 border rounded-xsm items-center gap-y-3">
@@ -141,12 +141,12 @@ function PasswordGenerator({ passwordName }) {
             <Switch
               checked={generateSettings.includeSpecialChars}
               id="specialCharacter"
-              onCheckedChange={(boolean) => {
+              onCheckedChange={(boolean) =>
                 setGenerateSettings({
                   ...generateSettings,
                   includeSpecialChars: boolean,
-                });
-              }}
+                })
+              }
             />
           </div>
         </TooltipContent>

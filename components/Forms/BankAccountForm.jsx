@@ -12,6 +12,21 @@ function BankAccountForm() {
 
   const { t } = useTranslation();
 
+  const handleIbanChange = (e) => {
+    e.preventDefault();
+
+    let formattedIban = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    formattedIban = formattedIban.slice(0, 26);
+
+    let formattedDisplay = t("dashboard.bank_account_form.iban_placeholder");
+
+    for (let i = 2; i < formattedIban.length; i += 4) {
+      formattedDisplay += " " + formattedIban.slice(i, i + 4);
+    }
+
+    setNewPassword({ ...newPassword, iban: formattedDisplay });
+  };
+
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
@@ -25,22 +40,7 @@ function BankAccountForm() {
           autoComplete="off"
           required
           value={newPassword.iban}
-          onChange={(e) => {
-            e.preventDefault();
-
-            let formattedIban = e.target.value
-              .toUpperCase()
-              .replace(/[^A-Z0-9]/g, "");
-            formattedIban = formattedIban.slice(0, 26);
-            let formattedDisplay = t(
-              "dashboard.bank_account_form.iban_placeholder"
-            );
-            for (let i = 2; i < formattedIban.length; i += 4) {
-              formattedDisplay += " " + formattedIban.slice(i, i + 4);
-            }
-
-            setNewPassword({ ...newPassword, iban: formattedDisplay });
-          }}
+          onChange={handleIbanChange}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
@@ -54,11 +54,9 @@ function BankAccountForm() {
           autoComplete="off"
           required
           value={newPassword.fullName}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, fullName: e.target.value });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, fullName: e.target.value })
+          }
         />
       </div>
     </div>

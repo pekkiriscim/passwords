@@ -27,27 +27,33 @@ function DeletePasswordDialog({ passwordId }) {
   const { auth } = useContext(AuthContext);
 
   const deletePassword = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    setIsLoading(true);
+      setIsLoading(true);
 
-    const newPasswords = await passwords.filter(
-      (password) => password.passwordId !== passwordId
-    );
+      const newPasswords = await passwords.filter(
+        (password) => password.passwordId !== passwordId
+      );
 
-    const newPasswordsState = await savePasswords(
-      newPasswords,
-      auth.email,
-      auth.password
-    );
+      const newPasswordsState = await savePasswords(
+        newPasswords,
+        auth.email,
+        auth.password
+      );
 
-    if (newPasswordsState) {
-      setPasswords(newPasswordsState);
+      if (newPasswordsState) {
+        setPasswords(newPasswordsState);
 
-      setIsDialogOpen(false);
+        setIsDialogOpen(false);
+      }
+    } catch (error) {
+      console.log(error);
+
+      return null;
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   const { t } = useTranslation();

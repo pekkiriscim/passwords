@@ -90,36 +90,46 @@ function PasswordDialog() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    setPasswordDialog({ ...passwordDialog, isLoading: true });
+      setPasswordDialog({ ...passwordDialog, isLoading: true });
 
-    if (passwordDialog.isUpdating) {
-      const updatedPasswordsState = await updatePassword(
-        passwords,
-        passwordDialog.updatePassword,
-        newPassword,
-        auth
-      );
+      if (passwordDialog.isUpdating) {
+        const updatedPasswordsState = await updatePassword(
+          passwords,
+          passwordDialog.updatePassword,
+          newPassword,
+          auth
+        );
 
-      setPasswords(updatedPasswordsState);
+        if (updatedPasswordsState) {
+          setPasswords(updatedPasswordsState);
 
-      setNewPassword(passwordDialog.updatePassword);
-    } else {
-      const newPasswordsState = await addNewPassword(
-        passwords,
-        newPassword,
-        auth
-      );
+          setNewPassword(passwordDialog.updatePassword);
+        }
+      } else {
+        const newPasswordsState = await addNewPassword(
+          passwords,
+          newPassword,
+          auth
+        );
 
-      setPasswords(newPasswordsState);
+        if (newPasswordsState) {
+          setPasswords(newPasswordsState);
 
-      setPasswordDialog({ ...passwordDialog, step: 1 });
+          setPasswordDialog({ ...passwordDialog, step: 1 });
 
-      setNewPassword(passwordTypeStates.webLogin);
+          setNewPassword(passwordTypeStates.webLogin);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+
+      return null;
+    } finally {
+      setPasswordDialog({ ...passwordDialog, isOpen: false, isLoading: false });
     }
-
-    setPasswordDialog({ ...passwordDialog, isOpen: false, isLoading: false });
   };
 
   const { t } = useTranslation();

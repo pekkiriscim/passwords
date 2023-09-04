@@ -7,7 +7,9 @@
       "email_placeholder": "E-posta adresinizi girin",
       "password_label": "Şifre",
       "password_placeholder": "Şifrenizi girin",
-      "continue_button": "Devam Et"
+      "continue_button": "Devam Et",
+      "error_title": "Üzgünüz! Bir şeyler ters gitti.",
+      "error_description": "Şifre depo erişimine veya yeni şifrelenmiş bir dosya oluşturmaya çalışırken bir hata oluştu."
     }
   },
   "dashboard": {
@@ -156,8 +158,8 @@
       "has_special_character": "Şifrelerde özel karakter kullanmanız önerilir."
     },
     "empty_state": {
-      "title": "Hoş Geldiniz!",
-      "description": "Başlamak için harika bir zaman! Şifrelerinizi hemen yönetmeye başlayın."
+      "title": "Şifre Bulunamadı",
+      "description": "Kasanızda şifre bulunmuyor veya aramanız eşleşmedi."
     }
   }
 }

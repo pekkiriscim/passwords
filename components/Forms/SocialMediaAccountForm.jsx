@@ -34,11 +34,9 @@ function SocialMediaAccountForm() {
           autoComplete="off"
           required
           value={newPassword.username}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, username: e.target.value });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, username: e.target.value })
+          }
         />
       </div>
       <div className="grid w-full gap-y-1.5">
@@ -55,11 +53,9 @@ function SocialMediaAccountForm() {
             autoComplete="off"
             required
             value={newPassword.password}
-            onChange={(e) => {
-              e.preventDefault();
-
-              setNewPassword({ ...newPassword, password: e.target.value });
-            }}
+            onChange={(e) =>
+              setNewPassword({ ...newPassword, password: e.target.value })
+            }
           />
           <Button
             type="button"

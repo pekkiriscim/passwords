@@ -7,7 +7,9 @@
       "email_placeholder": "Enter your email",
       "password_label": "Password",
       "password_placeholder": "Enter your password",
-      "continue_button": "Continue"
+      "continue_button": "Continue",
+      "error_title": "Oops! Something went wrong.",
+      "error_description": "An error occurred while attempting to access your password vault or create a new encrypted file."
     }
   },
   "dashboard": {
@@ -156,8 +158,8 @@
       "has_special_character": "Using special characters in passwords is recommended."
     },
     "empty_state": {
-      "title": "Welcome!",
-      "description": "It's the Perfect Time to Begin! Start managing your passwords right away."
+      "title": "No passwords found",
+      "description": "No passwords in your vault or your search didn't match."
     }
   }
 }

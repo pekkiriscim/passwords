@@ -22,14 +22,9 @@ function NoteForm() {
           autoComplete="off"
           required
           value={newPassword.note}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({
-              ...newPassword,
-              note: e.target.value,
-            });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, note: e.target.value })
+          }
         />
       </div>
     </div>

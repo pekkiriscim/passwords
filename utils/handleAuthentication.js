@@ -12,11 +12,11 @@ import encUTF8 from "crypto-js/enc-utf8";
 import { file_path, file_extension } from "@/passwords.config";
 
 export const handleAuthentication = async (email, password) => {
-  const fileName = SHA256(email + password).toString();
-  const filePath = file_path;
-  const fileExtension = file_extension;
-
   try {
+    const fileName = SHA256(email + password).toString();
+    const filePath = file_path;
+    const fileExtension = file_extension;
+
     const fileNameWithExtension = `${fileName}.${fileExtension}`;
 
     const isFileExists = await exists(fileNameWithExtension, {
@@ -34,8 +34,6 @@ export const handleAuthentication = async (email, password) => {
       ).toString(encUTF8);
 
       const parsedContent = JSON.parse(decryptedContent);
-
-      console.log("File Read Successfully!", parsedContent);
 
       return parsedContent;
     } else {
@@ -60,8 +58,6 @@ export const handleAuthentication = async (email, password) => {
       ).toString(encUTF8);
 
       const parsedContent = JSON.parse(decryptedContent);
-
-      console.log("File Created and Read Successfully!", parsedContent);
 
       return parsedContent;
     }

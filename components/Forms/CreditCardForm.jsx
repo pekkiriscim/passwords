@@ -12,6 +12,50 @@ function CreditCardForm() {
 
   const { t } = useTranslation();
 
+  const handleCreditCardNumberChange = (e) => {
+    e.preventDefault();
+
+    let formattedNumber = e.target.value.replace(/[^0-9]/g, "");
+    formattedNumber = formattedNumber.replace(/\s/g, "");
+
+    let formattedDisplay = "";
+
+    for (let i = 0; i < formattedNumber.length; i += 4) {
+      formattedDisplay += formattedNumber.slice(i, i + 4) + " ";
+    }
+
+    setNewPassword({
+      ...newPassword,
+      creditCardNumber: formattedDisplay.trim(),
+    });
+  };
+
+  const handleExpirationDateChange = (e) => {
+    e.preventDefault();
+
+    let formattedNumber = e.target.value.replace(/[^0-9]/g, "");
+    formattedNumber = formattedNumber.replace(/\s/g, "");
+
+    let formattedDisplay = "";
+
+    for (let i = 0; i < formattedNumber.length; i += 2) {
+      formattedDisplay += formattedNumber.slice(i, i + 2);
+      if (i + 2 < formattedNumber.length) {
+        formattedDisplay += "/";
+      }
+    }
+
+    setNewPassword({ ...newPassword, expirationDate: formattedDisplay });
+  };
+
+  const handleSecurityCodeChange = (e) => {
+    e.preventDefault();
+
+    let formattedSecurityCode = e.target.value.replace(/[^0-9]/g, "");
+
+    setNewPassword({ ...newPassword, securityCode: formattedSecurityCode });
+  };
+
   return (
     <div className="grid gap-y-4 py-4">
       <div className="grid w-full gap-y-1.5">
@@ -28,21 +72,7 @@ function CreditCardForm() {
           required
           value={newPassword.creditCardNumber}
           maxLength={19}
-          onChange={(e) => {
-            e.preventDefault();
-
-            let formattedNumber = e.target.value.replace(/[^0-9]/g, "");
-            formattedNumber = formattedNumber.replace(/\s/g, "");
-            let formattedDisplay = "";
-            for (let i = 0; i < formattedNumber.length; i += 4) {
-              formattedDisplay += formattedNumber.slice(i, i + 4) + " ";
-            }
-
-            setNewPassword({
-              ...newPassword,
-              creditCardNumber: formattedDisplay.trim(),
-            });
-          }}
+          onChange={handleCreditCardNumberChange}
         />
       </div>
       <div className="grid w-full gap-y-1.5">
@@ -58,11 +88,9 @@ function CreditCardForm() {
           autoComplete="off"
           required
           value={newPassword.cardHolderName}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({ ...newPassword, cardHolderName: e.target.value });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, cardHolderName: e.target.value })
+          }
         />
       </div>
       <div className="grid grid-cols-2 gap-x-3">
@@ -80,24 +108,7 @@ function CreditCardForm() {
             required
             value={newPassword.expirationDate}
             maxLength={5}
-            onChange={(e) => {
-              e.preventDefault();
-
-              let formattedNumber = e.target.value.replace(/[^0-9]/g, "");
-              formattedNumber = formattedNumber.replace(/\s/g, "");
-              let formattedDisplay = "";
-              for (let i = 0; i < formattedNumber.length; i += 2) {
-                formattedDisplay += formattedNumber.slice(i, i + 2);
-                if (i + 2 < formattedNumber.length) {
-                  formattedDisplay += "/";
-                }
-              }
-
-              setNewPassword({
-                ...newPassword,
-                expirationDate: formattedDisplay,
-              });
-            }}
+            onChange={handleExpirationDateChange}
           />
         </div>
         <div className="grid w-full gap-y-1.5">
@@ -114,16 +125,7 @@ function CreditCardForm() {
             required
             value={newPassword.securityCode}
             maxLength={4}
-            onChange={(e) => {
-              e.preventDefault();
-
-              let formattedSecurityCode = e.target.value.replace(/[^0-9]/g, "");
-
-              setNewPassword({
-                ...newPassword,
-                securityCode: formattedSecurityCode,
-              });
-            }}
+            onChange={handleSecurityCodeChange}
           />
         </div>
       </div>

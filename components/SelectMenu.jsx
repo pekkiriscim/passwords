@@ -19,13 +19,11 @@ function SelectMenu({ value, onValueChange, data, label, id, placeholder }) {
         </SelectTrigger>
         <SelectContent className="max-h-80">
           <SelectGroup>
-            {data.map((element, index) => {
-              return (
-                <SelectItem key={index} value={element.value}>
-                  {element.text}
-                </SelectItem>
-              );
-            })}
+            {data.map((element, index) => (
+              <SelectItem key={index} value={element.value}>
+                {element.text}
+              </SelectItem>
+            ))}
           </SelectGroup>
         </SelectContent>
       </Select>

@@ -48,12 +48,6 @@ function SearchBar() {
     }
   }, [search, passwords, filter.passwordType]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-
-    setSearch(e.target.value);
-  };
-
   return (
     <div className="grid mt-8 w-full grid-cols-[1fr_auto] gap-x-3">
       <Input
@@ -61,7 +55,7 @@ function SearchBar() {
         type="text"
         placeholder={t("dashboard.search_bar.search_placeholder")}
         spellCheck="false"
-        onChange={handleSearch}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <PasswordDialog />
     </div>

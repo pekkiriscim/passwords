@@ -59,9 +59,7 @@ function PasswordForm() {
         label={t("dashboard.password_form.password_type_label")}
         id={"passwordType"}
         placeholder={t("dashboard.password_form.password_type_placeholder")}
-        onValueChange={(string) => {
-          setNewPassword(passwordTypeStates[string]);
-        }}
+        onValueChange={(string) => setNewPassword(passwordTypeStates[string])}
       />
       <div className="grid w-full gap-y-1.5 py-4">
         <Label htmlFor="passwordTitle">
@@ -74,14 +72,9 @@ function PasswordForm() {
           autoComplete="off"
           required
           value={newPassword.passwordTitle}
-          onChange={(e) => {
-            e.preventDefault();
-
-            setNewPassword({
-              ...newPassword,
-              passwordTitle: e.target.value,
-            });
-          }}
+          onChange={(e) =>
+            setNewPassword({ ...newPassword, passwordTitle: e.target.value })
+          }
         />
       </div>
     </>
