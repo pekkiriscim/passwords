@@ -79,8 +79,9 @@
 
   html,
   body {
-    @apply bg-background text-foreground w-full h-full;
+    @apply bg-background text-foreground w-full h-full select-none cursor-default antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
   }
 
   html::-webkit-scrollbar,

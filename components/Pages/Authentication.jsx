@@ -73,6 +73,7 @@ function Authentication() {
             type="email"
             autoCapitalize="none"
             autoComplete="off"
+            spellCheck="false"
             autoCorrect="off"
             disabled={isLoading}
             required={true}
@@ -90,6 +91,7 @@ function Authentication() {
             type="password"
             autoCapitalize="none"
             autoComplete="off"
+            spellCheck="false"
             autoCorrect="off"
             disabled={isLoading}
             required={true}

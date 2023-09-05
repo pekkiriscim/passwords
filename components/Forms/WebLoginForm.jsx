@@ -30,6 +30,7 @@ function WebLoginForm() {
           id="email"
           placeholder={t("dashboard.web_login_form.email_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.email}
           onChange={(e) =>
@@ -47,6 +48,7 @@ function WebLoginForm() {
             id="password"
             placeholder={t("dashboard.web_login_form.password_placeholder")}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.password}
             onChange={(e) =>
@@ -80,6 +82,7 @@ function WebLoginForm() {
           id="URL"
           placeholder={t("dashboard.web_login_form.url_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.URL}
           onChange={(e) =>

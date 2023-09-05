@@ -12,9 +12,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   useEffect(() => {
+    const preventContextMenu = (e) => e.preventDefault();
+
+    document.addEventListener("contextmenu", preventContextMenu);
+
     const userLanguage = window.navigator.language || "en";
 
     i18n.changeLanguage(userLanguage);
+
+    return () =>
+      document.removeEventListener("contextmenu", preventContextMenu);
   }, []);
   return (
     <html>

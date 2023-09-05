@@ -32,6 +32,7 @@ function SocialMediaAccountForm() {
             "dashboard.social_media_account_form.username_placeholder"
           )}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.username}
           onChange={(e) =>
@@ -51,6 +52,7 @@ function SocialMediaAccountForm() {
               "dashboard.social_media_account_form.password_placeholder"
             )}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.password}
             onChange={(e) =>

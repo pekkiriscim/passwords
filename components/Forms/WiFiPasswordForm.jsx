@@ -30,6 +30,7 @@ function WiFiPasswordForm() {
           id="wifiName"
           placeholder={t("dashboard.wifi_password_form.wifi_name_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.wifiName}
           onChange={(e) =>
@@ -49,6 +50,7 @@ function WiFiPasswordForm() {
               "dashboard.wifi_password_form.wifi_password_placeholder"
             )}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.wifiPassword}
             onChange={(e) =>

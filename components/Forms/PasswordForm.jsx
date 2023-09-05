@@ -70,6 +70,7 @@ function PasswordForm() {
           id="passwordTitle"
           placeholder={t("dashboard.password_form.password_title_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.passwordTitle}
           onChange={(e) =>

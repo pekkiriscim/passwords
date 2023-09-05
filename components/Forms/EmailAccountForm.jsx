@@ -30,6 +30,7 @@ function EmailAccountForm() {
           id="email"
           placeholder={t("dashboard.email_account_form.email_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.email}
           onChange={(e) =>
@@ -47,6 +48,7 @@ function EmailAccountForm() {
             id="password"
             placeholder={t("dashboard.email_account_form.password_placeholder")}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.password}
             onChange={(e) =>

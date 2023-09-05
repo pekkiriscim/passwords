@@ -38,6 +38,7 @@ function BankAccountForm() {
           id="iban"
           placeholder={t("dashboard.bank_account_form.iban_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.iban}
           onChange={handleIbanChange}
@@ -52,6 +53,7 @@ function BankAccountForm() {
           id="fullName"
           placeholder={t("dashboard.bank_account_form.full_name_placeholder")}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.fullName}
           onChange={(e) =>

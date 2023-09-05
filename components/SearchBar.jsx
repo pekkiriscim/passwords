@@ -55,6 +55,7 @@ function SearchBar() {
         type="text"
         placeholder={t("dashboard.search_bar.search_placeholder")}
         spellCheck="false"
+        autoComplete="off"
         onChange={(e) => setSearch(e.target.value)}
       />
       <PasswordDialog />

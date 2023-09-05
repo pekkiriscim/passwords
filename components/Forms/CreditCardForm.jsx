@@ -69,6 +69,7 @@ function CreditCardForm() {
             "dashboard.credit_card_form.credit_card_number_placeholder"
           )}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.creditCardNumber}
           maxLength={19}
@@ -86,6 +87,7 @@ function CreditCardForm() {
             "dashboard.credit_card_form.card_holder_name_placeholder"
           )}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.cardHolderName}
           onChange={(e) =>
@@ -105,6 +107,7 @@ function CreditCardForm() {
               "dashboard.credit_card_form.expiration_date_placeholder"
             )}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.expirationDate}
             maxLength={5}
@@ -122,6 +125,7 @@ function CreditCardForm() {
               "dashboard.credit_card_form.security_code_placeholder"
             )}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.securityCode}
             maxLength={4}

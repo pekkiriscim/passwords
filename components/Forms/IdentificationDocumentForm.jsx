@@ -53,6 +53,7 @@ function IdentificationDocumentForm() {
             "dashboard.identification_document_form.identity_number_placeholder"
           )}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.identityNumber}
           onChange={handleIdentityNumberChange}
@@ -69,6 +70,7 @@ function IdentificationDocumentForm() {
             "dashboard.identification_document_form.full_name_placeholder"
           )}
           autoComplete="off"
+          spellCheck="false"
           required
           value={newPassword.fullName}
           onChange={(e) =>
@@ -88,6 +90,7 @@ function IdentificationDocumentForm() {
               "dashboard.identification_document_form.birth_date_placeholder"
             )}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.birthDate}
             onChange={handleBirthDateChange}
@@ -104,6 +107,7 @@ function IdentificationDocumentForm() {
               "dashboard.identification_document_form.series_number_placeholder"
             )}
             autoComplete="off"
+            spellCheck="false"
             required
             value={newPassword.seriesNumber}
             onChange={(e) =>
