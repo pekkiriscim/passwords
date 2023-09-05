@@ -2,6 +2,8 @@
 
 Passwords is an open-source desktop app that simplifies password management, offering a secure and user-friendly experience. Built with Tauri and Next.js.
 
+<img src="screenshots/Dashboard.png" alt="Dashboard" width="100%">
+
 ## Features
 
 - Access your encrypted password file through the user authentication page. Safeguard your passwords with an additional layer of security using user credentials.
@@ -23,6 +25,14 @@ Passwords is an open-source desktop app that simplifies password management, off
 - Store your passwords in an encrypted local file, ensuring the safety of your sensitive information. Utilize encryption powered by CryptoJS to maintain the confidentiality of your stored data.
 
 - Enjoy a modern and user-friendly interface designed for efficiency and ease of use. Access various password types and features with a clean and organized layout.
+
+<img src="screenshots/Authentication.png" alt="Authentication" width="100%">
+
+<img src="screenshots/PasswordDialog.png" alt="PasswordDialog" width="100%">
+
+<img src="screenshots/PasswordGenerator.png" alt="PasswordGenerator" width="100%">
+
+<img src="screenshots/DeletePasswordDialog.png" alt="DeletePasswordDialog" width="100%">
 
 ## Used Technologies
 
