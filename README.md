@@ -26,14 +26,6 @@ Passwords is an open-source desktop app that simplifies password management, off
 
 - Enjoy a modern and user-friendly interface designed for efficiency and ease of use. Access various password types and features with a clean and organized layout.
 
-<img src="screenshots/Authentication.png" alt="Authentication" width="100%">
-
-<img src="screenshots/PasswordDialog.png" alt="PasswordDialog" width="100%">
-
-<img src="screenshots/PasswordGenerator.png" alt="PasswordGenerator" width="100%">
-
-<img src="screenshots/DeletePasswordDialog.png" alt="DeletePasswordDialog" width="100%">
-
 ## Used Technologies
 
 - **Tauri**: Empower your app with the capabilities of Tauri, enabling seamless cross-platform deployment and access to native APIs for enhanced user experience.
@@ -103,6 +95,18 @@ Contributions to Passwords are welcomed and encouraged! If you're interested in 
 Passwords is open-source software released under the MIT License.
 
 The MIT License (MIT) is a permissive open-source license that allows you to use, modify, and distribute the software in your projects, both commercial and non-commercial, while providing attribution to the original authors.
+
+## Screenshots
+
+<img src="screenshots/Authentication.png" alt="Authentication" width="100%">
+
+<img src="screenshots/Dashboard.png" alt="Dashboard" width="100%">
+
+<img src="screenshots/PasswordDialog.png" alt="PasswordDialog" width="100%">
+
+<img src="screenshots/PasswordGenerator.png" alt="PasswordGenerator" width="100%">
+
+<img src="screenshots/DeletePasswordDialog.png" alt="DeletePasswordDialog" width="100%">
 
 ## Download App
 
