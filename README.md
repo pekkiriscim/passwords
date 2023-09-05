@@ -4,6 +4,22 @@ Passwords is an open-source desktop app that simplifies password management, off
 
 <img src="screenshots/Dashboard.png" alt="Dashboard" width="100%">
 
+## Table of Contents
+
+- [Features](#features)
+
+- [Used Technologies](#used-technologies)
+
+- [Run Locally](#run-locally)
+
+- [Contribution](#contribution)
+
+- [License](#license)
+
+- [Screenshots](#screenshots)
+
+- [Download App](#download-app)
+
 ## Features
 
 - Access your encrypted password file through the user authentication page. Safeguard your passwords with an additional layer of security using user credentials.
